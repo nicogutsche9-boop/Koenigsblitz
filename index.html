@@ -1411,126 +1411,416 @@
 
 
             <!-- =================================================
-                 EINSTELLUNGEN
-            ================================================== -->
+     EINSTELLUNGEN – KÖNIGSBLITZ
+================================================= -->
 
-            <section
-                class="page"
-                data-page="settings"
-            >
+<section
+    class="page"
+    data-page="settings"
+>
+
+    <div class="page-intro">
+
+        <span class="eyebrow">
+            KONTO
+        </span>
+
+        <h2>
+            Einstellungen
+        </h2>
+
+        <p>
+            Verwalte dein Profil und passe
+            Königsblitz an deine Wünsche an.
+        </p>
+
+    </div>
 
 
-                <div class="page-intro">
+    <!-- =================================================
+         PROFIL
+    ================================================== -->
 
-                    <span class="eyebrow">
-                        KONTO
+    <div class="settings-profile-card">
+
+        <div class="settings-avatar">
+            N
+        </div>
+
+        <div class="settings-profile-info">
+
+            <span>
+                DEIN PROFIL
+            </span>
+
+            <h3>
+                Nico
+            </h3>
+
+            <p>
+                1250 Rating
+            </p>
+
+        </div>
+
+        <button
+            class="secondary-button"
+            type="button"
+            onclick="editProfile()"
+        >
+            Profil bearbeiten
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         EINSTELLUNGSBEREICHE
+    ================================================== -->
+
+    <div class="settings-sections">
+
+
+        <!-- ACCOUNT -->
+
+        <div class="settings-card">
+
+            <div class="settings-card-title">
+
+                <span class="settings-section-icon">
+                    ♙
+                </span>
+
+                <div>
+
+                    <span>
+                        ACCOUNT
                     </span>
 
-                    <h2>
-                        Einstellungen
-                    </h2>
-
-                    <p>
-                        Verwalte dein Profil und
-                        deine persönlichen Einstellungen.
-                    </p>
+                    <h3>
+                        Kontoeinstellungen
+                    </h3>
 
                 </div>
 
+            </div>
 
 
-                <div class="settings-card">
+            <div class="setting-row">
 
+                <div>
 
-                    <div class="setting-row">
+                    <strong>
+                        Spielername
+                    </strong>
 
-                        <div>
-
-                            <strong>
-                                Profilname
-                            </strong>
-
-                            <span>
-                                Nico
-                            </span>
-
-                        </div>
-
-
-                        <button
-                            type="button"
-                            class="secondary-button"
-                            id="edit-profile-button"
-                        >
-                            Bearbeiten
-                        </button>
-
-                    </div>
-
-
-
-                    <div class="setting-row">
-
-                        <div>
-
-                            <strong>
-                                Rating
-                            </strong>
-
-                            <span>
-                                1250
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="setting-row">
-
-                        <div>
-
-                            <strong>
-                                Coins
-                            </strong>
-
-                            <span>
-                                <span id="settings-coins">
-                                    100
-                                </span>
-                                🪙
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="setting-row">
-
-                        <div>
-
-                            <strong>
-                                Konto
-                            </strong>
-
-                            <span>
-                                Königsblitz-Konto
-                            </span>
-
-                        </div>
-
-                    </div>
-
+                    <span>
+                        Nico
+                    </span>
 
                 </div>
 
+                <button
+                    class="text-button"
+                    type="button"
+                    onclick="editProfile()"
+                >
+                    Bearbeiten →
+                </button>
 
-            </section>
+            </div>
 
 
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Rating
+                    </strong>
+
+                    <span>
+                        1250
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Coins
+                    </strong>
+
+                    <span>
+                        100 🪙
+                    </span>
+
+                </div>
+
+                <button
+                    class="text-button"
+                    type="button"
+                    onclick="navigateTo('shop')"
+                >
+                    Zum Shop →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DARSTELLUNG -->
+
+        <div class="settings-card">
+
+            <div class="settings-card-title">
+
+                <span class="settings-section-icon">
+                    ◐
+                </span>
+
+                <div>
+
+                    <span>
+                        DARSTELLUNG
+                    </span>
+
+                    <h3>
+                        Anzeige
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Design
+                    </strong>
+
+                    <span>
+                        Königsblitz Dark
+                    </span>
+
+                </div>
+
+                <button
+                    class="text-button"
+                    type="button"
+                    onclick="showMessage('Weitere Designs kommen später.')"
+                >
+                    Ändern →
+                </button>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Animationen
+                    </strong>
+
+                    <span>
+                        Aktiviert
+                    </span>
+
+                </div>
+
+                <button
+                    class="setting-toggle active"
+                    type="button"
+                    onclick="toggleSetting(this)"
+                    aria-label="Animationen ein- oder ausschalten"
+                >
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BENACHRICHTIGUNGEN -->
+
+        <div class="settings-card">
+
+            <div class="settings-card-title">
+
+                <span class="settings-section-icon">
+                    🔔
+                </span>
+
+                <div>
+
+                    <span>
+                        BENACHRICHTIGUNGEN
+                    </span>
+
+                    <h3>
+                        Benachrichtigungen
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Nachrichten
+                    </strong>
+
+                    <span>
+                        Neue Nachrichten anzeigen
+                    </span>
+
+                </div>
+
+                <button
+                    class="setting-toggle active"
+                    type="button"
+                    onclick="toggleSetting(this)"
+                    aria-label="Nachrichten-Benachrichtigungen ein- oder ausschalten"
+                >
+                    <span></span>
+                </button>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Spielanfragen
+                    </strong>
+
+                    <span>
+                        Anfragen von anderen Spielern
+                    </span>
+
+                </div>
+
+                <button
+                    class="setting-toggle active"
+                    type="button"
+                    onclick="toggleSetting(this)"
+                    aria-label="Spielanfragen ein- oder ausschalten"
+                >
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SHOP -->
+
+        <div class="settings-card shop-settings-card">
+
+            <div class="settings-card-title">
+
+                <span class="settings-section-icon">
+                    🛒
+                </span>
+
+                <div>
+
+                    <span>
+                        SHOP
+                    </span>
+
+                    <h3>
+                        Deine Einkäufe
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Dein Guthaben
+                    </strong>
+
+                    <span>
+                        100 Coins
+                    </span>
+
+                </div>
+
+                <button
+                    class="primary-button small-button"
+                    type="button"
+                    onclick="navigateTo('shop')"
+                >
+                    Shop öffnen
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         HINWEIS
+    ================================================== -->
+
+    <div class="overview-tip">
+
+        <span>
+            ⚙
+        </span>
+
+        <div>
+
+            <strong>
+                Weitere Einstellungen kommen später
+            </strong>
+
+            <p>
+                Sobald die technische Basis steht,
+                können hier weitere Optionen wie
+                Konto, Datenschutz und Sicherheit
+                ergänzt werden.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
 
             <!-- =================================================
                  SHOP
