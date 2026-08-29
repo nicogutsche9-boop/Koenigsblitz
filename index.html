@@ -743,65 +743,139 @@
 
 </section>
 
-            <!-- =================================================
-                 FREUNDE
-            ================================================== -->
+      <!-- =================================================
+     FREUNDE – KÖNIGSBLITZ
+================================================= -->
 
-            <section
-                class="page"
-                data-page="friends"
+<section
+    class="page"
+    data-page="friends"
+>
+
+    <div class="page-intro">
+
+        <span class="eyebrow">
+            COMMUNITY
+        </span>
+
+        <h2>
+            Deine Freunde
+        </h2>
+
+        <p>
+            Spiele gemeinsam mit deinen Freunden
+            und fordere sie zu einer Partie heraus.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         FREUNDE KOPF
+    ================================================== -->
+
+    <div class="friends-toolbar">
+
+        <div class="friends-counter">
+
+            <span class="friends-counter-icon">
+                ♟♟
+            </span>
+
+            <div>
+
+                <strong id="friends-count">
+                    0
+                </strong>
+
+                <span>
+                    Freunde
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            type="button"
+            onclick="addFriend()"
+        >
+            + Freund hinzufügen
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         FREUNDESLISTE
+    ================================================== -->
+
+    <div
+        id="friends-list"
+        class="friends-list"
+    >
+
+        <div class="empty-card">
+
+            <div class="empty-icon">
+                ♟
+            </div>
+
+            <h3>
+                Noch keine Freunde
+            </h3>
+
+            <p>
+                Deine Freundesliste ist momentan noch leer.
+                Füge einen Spieler hinzu, um gemeinsam
+                Schach zu spielen.
+            </p>
+
+            <button
+                class="secondary-button"
+                type="button"
+                onclick="addFriend()"
             >
+                + Freund hinzufügen
+            </button>
 
+        </div>
 
-                <div class="page-intro">
-
-                    <span class="eyebrow">
-                        COMMUNITY
-                    </span>
-
-                    <h2>
-                        Deine Freunde
-                    </h2>
-
-                    <p>
-                        Verwalte deine Freunde und
-                        starte gemeinsame Partien.
-                    </p>
-
-                </div>
+    </div>
 
 
 
-                <div class="empty-card">
+    <!-- =================================================
+         HINWEIS
+    ================================================== -->
 
-                    <div class="empty-icon">
-                        ♟
-                    </div>
+    <div class="overview-tip">
 
-                    <h3>
-                        Noch keine Freunde
-                    </h3>
+        <span>
+            ♟
+        </span>
 
-                    <p>
-                        Deine Freundesliste ist momentan
-                        noch leer.
-                    </p>
+        <div>
 
-                    <button
-                        type="button"
-                        class="primary-button"
-                        id="add-friend-button"
-                    >
-                        + Freund hinzufügen
-                    </button>
+            <strong>
+                Gemeinsam macht Schach mehr Spaß
+            </strong>
 
-                </div>
+            <p>
+                Sobald du Freunde hinzugefügt hast,
+                kannst du sie direkt zu einer Partie
+                einladen.
+            </p>
 
+        </div>
 
-            </section>
+    </div>
 
 
-
+</section>
             <!-- =================================================
                  RANKING
             ================================================== -->
