@@ -3190,3 +3190,268 @@ button:focus-visible {
     }
 
 }
+
+/* =========================================================
+   EINSTELLUNGEN – KÖNIGSBLITZ
+========================================================= */
+
+.settings-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 30px;
+    margin-bottom: 22px;
+
+    padding: 22px 24px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.018)
+        );
+}
+
+.settings-avatar {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.settings-profile-info {
+    flex: 1;
+}
+
+.settings-profile-info > span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 10px;
+    letter-spacing: 1.3px;
+
+    opacity: 0.45;
+}
+
+.settings-profile-info h3 {
+    margin: 0;
+
+    font-size: 19px;
+}
+
+.settings-profile-info p {
+    margin: 3px 0 0;
+
+    font-size: 12px;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   EINSTELLUNGS-KARTEN
+========================================================= */
+
+.settings-sections {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.settings-card {
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.settings-card-title {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.settings-section-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: rgba(255,255,255,0.06);
+
+    font-size: 17px;
+}
+
+.settings-card-title > div > span {
+    display: block;
+
+    font-size: 9px;
+    letter-spacing: 1.3px;
+
+    opacity: 0.45;
+}
+
+.settings-card-title h3 {
+    margin: 4px 0 0;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   EINZELNE EINSTELLUNG
+========================================================= */
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    min-height: 70px;
+
+    padding: 14px 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-row > div {
+    min-width: 0;
+}
+
+.setting-row strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 14px;
+}
+
+.setting-row > div > span {
+    display: block;
+
+    font-size: 12px;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   TOGGLE
+========================================================= */
+
+.setting-toggle {
+    position: relative;
+
+    width: 46px;
+    height: 26px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.12);
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.setting-toggle span {
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.7);
+
+    transition: transform 0.2s ease;
+}
+
+.setting-toggle.active {
+    background: rgba(255,255,255,0.25);
+}
+
+.setting-toggle.active span {
+    transform: translateX(20px);
+}
+
+
+/* =========================================================
+   KLEINER BUTTON
+========================================================= */
+
+.small-button {
+    padding: 9px 14px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .settings-profile-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .settings-profile-card .secondary-button {
+        width: 100%;
+    }
+
+    .setting-row {
+        align-items: flex-start;
+    }
+
+    .setting-row .text-button {
+        flex-shrink: 0;
+    }
+
+}
