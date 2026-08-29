@@ -336,441 +336,330 @@ document.addEventListener("DOMContentLoaded", () => {
     window.newMessage =
         newMessage;
 
+/* =====================================================
+   SHOP + COIN SYSTEM
+===================================================== */
 
-    /* =====================================================
-       =====================================================
-       COIN-SYSTEM
-       =====================================================
-    ====================================================== */
-
-    const COIN_STORAGE_KEY =
-        "kingsblitzCoins";
+const COIN_KEY = "kingsblitzCoins";
+const PURCHASE_KEY = "kingsblitzPurchasedItems";
 
 
-    const PURCHASE_STORAGE_KEY =
-        "kingsblitzPurchasedItems";
+/* =====================================================
+   COINS LADEN
+===================================================== */
 
+function getCoins() {
 
-    /* =====================================================
-       COINS LADEN
-    ===================================================== */
+    let coins = Number(
+        localStorage.getItem(COIN_KEY)
+    );
 
-    function getCoins() {
+    if (!Number.isFinite(coins)) {
 
-        let coins =
-            parseInt(
-                localStorage.getItem(
-                    COIN_STORAGE_KEY
-                ),
-                10
-            );
-
-
-        if (isNaN(coins)) {
-
-            coins = 100;
-
-            localStorage.setItem(
-                COIN_STORAGE_KEY,
-                String(coins)
-            );
-
-        }
-
-
-        return coins;
-
-    }
-
-
-    /* =====================================================
-       COINS SPEICHERN
-    ===================================================== */
-
-    function saveCoins(coins) {
+        coins = 100;
 
         localStorage.setItem(
-            COIN_STORAGE_KEY,
+            COIN_KEY,
             String(coins)
         );
 
     }
 
-
-    /* =====================================================
-       COIN-ANZEIGE AKTUALISIEREN
-    ===================================================== */
-
-    function updateCoins() {
-
-        const coins =
-            getCoins();
+    return coins;
+}
 
 
-        /*
-         * Unterstützt sowohl:
-         *
-         * data-coins="true"
-         *
-         * als auch
-         *
-         * .coin-display strong
-         */
+/* =====================================================
+   COINS SPEICHERN
+===================================================== */
 
-        const coinElements =
-            document.querySelectorAll(
-                "[data-coins], .coin-display strong, .shop-coins strong"
-            );
+function saveCoins(coins) {
+
+    localStorage.setItem(
+        COIN_KEY,
+        String(coins)
+    );
+
+}
 
 
-        coinElements.forEach(element => {
+/* =====================================================
+   COIN-ANZEIGE
+===================================================== */
 
-            element.textContent =
-                coins;
+function updateCoins() {
 
-        });
-
-    }
-
-
-    /* =====================================================
-       COINS ÖFFENTLICH ZUGÄNGLICH
-    ===================================================== */
-
-    window.getCoins = function() {
-
-        return getCoins();
-
-    };
+    const coins = getCoins();
 
 
-    /* =====================================================
-       COINS HINZUFÜGEN
-       Wird später für Belohnungen / Siege verwendet.
-    ===================================================== */
-
-    window.addCoins = function(amount) {
-
-        amount =
-            Number(amount);
-
-
-        if (
-            isNaN(amount) ||
-            amount <= 0
-        ) {
-            return;
-        }
-
-
-        let coins =
-            getCoins();
-
-
-        coins += amount;
-
-
-        saveCoins(coins);
-
-        updateCoins();
-
-
-        showMessage(
-            "+" + amount +
-            " 🪙 Coins erhalten!"
+    const elements =
+        document.querySelectorAll(
+            "[data-coins], .coin-display strong, .shop-coins strong"
         );
 
-    };
+
+    elements.forEach(element => {
+
+        element.textContent = coins;
+
+    });
+
+}
 
 
-    /* =====================================================
-       GEKAUFTE ARTIKEL LADEN
-    ===================================================== */
+/* =====================================================
+   GEKAUFTE ARTIKEL
+===================================================== */
 
-    function getPurchasedItems() {
+function getPurchasedItems() {
 
-        try {
+    try {
 
-            const saved =
-                localStorage.getItem(
-                    PURCHASE_STORAGE_KEY
-                );
-
-
-            if (!saved) {
-                return [];
-            }
-
-
-            const items =
-                JSON.parse(saved);
-
-
-            if (!Array.isArray(items)) {
-                return [];
-            }
-
-
-            return items;
-
-        } catch (error) {
-
-            console.error(
-                "Fehler beim Laden der gekauften Artikel:",
-                error
+        const saved =
+            localStorage.getItem(
+                PURCHASE_KEY
             );
 
 
+        if (!saved) {
             return [];
-
         }
 
-    }
-
-
-    /* =====================================================
-       GEKAUFTE ARTIKEL SPEICHERN
-    ===================================================== */
-
-    function savePurchasedItems(items) {
-
-        localStorage.setItem(
-            PURCHASE_STORAGE_KEY,
-            JSON.stringify(items)
-        );
-
-    }
-
-
-    /* =====================================================
-       PRÜFEN OB ARTIKEL GEKAUFT
-    ===================================================== */
-
-    function hasPurchased(itemName) {
 
         const items =
-            getPurchasedItems();
+            JSON.parse(saved);
 
 
-        return items.includes(
-            itemName
+        return Array.isArray(items)
+            ? items
+            : [];
+
+    } catch (error) {
+
+        console.error(
+            "Fehler beim Laden der gekauften Artikel:",
+            error
         );
+
+        return [];
 
     }
 
+}
 
-    /* =====================================================
-       SHOP-ARTIKEL KAUFEN
-    ===================================================== */
 
-    window.buyShopItem = function(
+/* =====================================================
+   ARTIKEL SPEICHERN
+===================================================== */
+
+function savePurchasedItems(items) {
+
+    localStorage.setItem(
+        PURCHASE_KEY,
+        JSON.stringify(items)
+    );
+
+}
+
+
+/* =====================================================
+   ARTIKEL BEREITS GEKAUFT?
+===================================================== */
+
+function hasPurchased(itemName) {
+
+    return getPurchasedItems().includes(
+        itemName
+    );
+
+}
+
+
+/* =====================================================
+   KAUFEN
+===================================================== */
+
+function buyItem(itemName, price) {
+
+    console.log(
+        "Kauf gestartet:",
         itemName,
         price
+    );
+
+
+    price = Number(price);
+
+
+    if (
+        !itemName ||
+        !Number.isFinite(price) ||
+        price <= 0
     ) {
 
-        price =
-            Number(price);
-
-
-        if (
-            !itemName ||
-            isNaN(price) ||
-            price <= 0
-        ) {
-
-            showMessage(
-                "Dieser Artikel ist momentan nicht verfügbar."
-            );
-
-            return;
-
-        }
-
-
-        /*
-         * Prüfen, ob bereits gekauft
-         */
-
-        if (hasPurchased(itemName)) {
-
-            showMessage(
-                "Du besitzt diesen Artikel bereits."
-            );
-
-            return;
-
-        }
-
-
-        /*
-         * Aktuellen Kontostand holen
-         */
-
-        let coins =
-            getCoins();
-
-
-        /*
-         * Zu wenig Coins
-         */
-
-        if (coins < price) {
-
-            showMessage(
-                "Du hast nicht genügend Coins. 🪙"
-            );
-
-            return;
-
-        }
-
-
-        /*
-         * Preis abziehen
-         */
-
-        coins -= price;
-
-
-        /*
-         * Neuen Kontostand speichern
-         */
-
-        saveCoins(coins);
-
-
-        /*
-         * Artikel speichern
-         */
-
-        const purchasedItems =
-            getPurchasedItems();
-
-
-        purchasedItems.push(
-            itemName
-        );
-
-
-        savePurchasedItems(
-            purchasedItems
-        );
-
-
-        /*
-         * Anzeigen aktualisieren
-         */
-
-        updateCoins();
-
-        updateShopButtons();
-
-
-        /*
-         * Erfolg
-         */
-
         showMessage(
-            "✓ " +
-            itemName +
-            " wurde gekauft!"
+            "Dieser Artikel ist nicht verfügbar."
         );
 
-    };
-
-
-    /* =====================================================
-       SHOP-BUTTONS AKTUALISIEREN
-    ===================================================== */
-
-    function updateShopButtons() {
-
-        const buttons =
-            document.querySelectorAll(
-                ".shop-item-large button"
-            );
-
-
-        buttons.forEach(button => {
-
-            const item =
-                button.closest(
-                    ".shop-item-large"
-                );
-
-
-            if (!item) {
-                return;
-            }
-
-
-            const itemName =
-                item.dataset.item;
-
-
-            const price =
-                Number(
-                    item.dataset.price
-                );
-
-
-            if (!itemName || isNaN(price)) {
-                return;
-            }
-
-
-            if (hasPurchased(itemName)) {
-
-                button.textContent =
-                    "✓ Besitzt du";
-
-
-                button.disabled =
-                    true;
-
-
-                button.classList.add(
-                    "purchased"
-                );
-
-
-            } else {
-
-                button.textContent =
-                    price +
-                    " 🪙 kaufen";
-
-
-                button.disabled =
-                    false;
-
-
-                button.classList.remove(
-                    "purchased"
-                );
-
-            }
-
-        });
+        return;
 
     }
 
 
-    /* =====================================================
-       SHOP ÖFFNEN
-    ===================================================== */
+    /* Bereits gekauft */
 
-    window.openShop = function() {
+    if (hasPurchased(itemName)) {
 
-        openPage("shop");
+        showMessage(
+            "Du besitzt diesen Artikel bereits."
+        );
 
-        updateCoins();
+        return;
 
-        updateShopButtons();
-
-    };
+    }
 
 
+    /* Coins */
+
+    let coins =
+        getCoins();
+
+
+    /* Zu wenig Coins */
+
+    if (coins < price) {
+
+        showMessage(
+            "Nicht genügend Coins! 🪙"
+        );
+
+        return;
+
+    }
+
+
+    /* Preis abziehen */
+
+    coins -= price;
+
+
+    saveCoins(coins);
+
+
+    /* Kauf speichern */
+
+    const purchased =
+        getPurchasedItems();
+
+
+    purchased.push(
+        itemName
+    );
+
+
+    savePurchasedItems(
+        purchased
+    );
+
+
+    /* Anzeige aktualisieren */
+
+    updateCoins();
+
+
+    /* Erfolg */
+
+    showMessage(
+        "✓ " +
+        itemName +
+        " gekauft!"
+    );
+
+
+    console.log(
+        "Kauf erfolgreich:",
+        itemName,
+        "Restliche Coins:",
+        coins
+    );
+
+}
+
+
+/* =====================================================
+   ALTE FUNKTION ALS ALIAS
+   Damit sowohl buyItem() als auch buyShopItem()
+   funktionieren.
+===================================================== */
+
+window.buyItem =
+    buyItem;
+
+
+window.buyShopItem =
+    buyItem;
+
+
+/* =====================================================
+   COINS ÖFFENTLICH
+===================================================== */
+
+window.getCoins = function() {
+
+    return getCoins();
+
+};
+
+
+window.addCoins = function(amount) {
+
+    amount = Number(amount);
+
+
+    if (
+        !Number.isFinite(amount) ||
+        amount <= 0
+    ) {
+        return;
+    }
+
+
+    const coins =
+        getCoins() + amount;
+
+
+    saveCoins(coins);
+
+    updateCoins();
+
+
+    showMessage(
+        "+" +
+        amount +
+        " 🪙 Coins erhalten!"
+    );
+
+};
+
+
+/* =====================================================
+   SHOP ÖFFNEN
+===================================================== */
+
+window.openShop = function() {
+
+    openPage("shop");
+
+    updateCoins();
+
+};
+
+
+/* =====================================================
+   INITIALISIERUNG
+===================================================== */
+
+updateCoins();
     /* =====================================================
        BELOHNUNGEN
     ===================================================== */
