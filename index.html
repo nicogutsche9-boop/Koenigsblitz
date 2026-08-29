@@ -2729,7 +2729,168 @@ function showMessage(message) {
 
 }
 
+/* =========================================================
+   SHOP – KAUFFUNKTION
+========================================================= */
 
+function buyItem(itemName, price) {
+
+    /* Aktuelles Guthaben holen */
+
+    let coins = parseInt(
+        localStorage.getItem("kingsblitzCoins"),
+        10
+    );
+
+
+    /* Falls noch kein Guthaben existiert */
+
+    if (isNaN(coins)) {
+
+        coins = 100;
+
+        localStorage.setItem(
+            "kingsblitzCoins",
+            coins
+        );
+
+    }
+
+
+    /* Prüfen, ob genug Coins vorhanden sind */
+
+    if (coins < price) {
+
+        showMessage(
+            "Du hast nicht genügend Coins. 🪙"
+        );
+
+        return;
+
+    }
+
+
+    /* Preis abziehen */
+
+    coins -= price;
+
+
+    /* Neues Guthaben speichern */
+
+    localStorage.setItem(
+        "kingsblitzCoins",
+        coins
+    );
+
+
+    /* Coin-Anzeigen aktualisieren */
+
+    updateCoinDisplays();
+
+
+    /* Erfolgsmeldung */
+
+    showMessage(
+        itemName + " wurde erfolgreich gekauft! 🎉"
+    );
+
+}
+
+
+/* =========================================================
+   COIN-ANZEIGEN AKTUALISIEREN
+========================================================= */
+
+function updateCoinDisplays() {
+
+    let coins = parseInt(
+        localStorage.getItem("kingsblitzCoins"),
+        10
+    );
+
+
+    if (isNaN(coins)) {
+
+        coins = 100;
+
+        localStorage.setItem(
+            "kingsblitzCoins",
+            coins
+        );
+
+    }
+
+
+    /* Oben in der Topbar */
+
+    const coinCount =
+        document.getElementById("coin-count");
+
+
+    if (coinCount) {
+
+        coinCount.textContent = coins;
+
+    }
+
+
+    /* Im Shop */
+
+    const shopCoins =
+        document.getElementById("shop-coins");
+
+
+    if (shopCoins) {
+
+        shopCoins.textContent = coins;
+
+    }
+
+
+    /* Weitere Coin-Anzeigen */
+
+    document.querySelectorAll(
+        "[data-coins]"
+    ).forEach(function(element) {
+
+        element.textContent = coins;
+
+    });
+
+}
+
+
+/* =========================================================
+   START-GUTHABEN
+========================================================= */
+
+function initializeCoins() {
+
+    let coins = parseInt(
+        localStorage.getItem("kingsblitzCoins"),
+        10
+    );
+
+
+    if (isNaN(coins)) {
+
+        coins = 100;
+
+        localStorage.setItem(
+            "kingsblitzCoins",
+            coins
+        );
+
+    }
+
+
+    updateCoinDisplays();
+
+}
+
+
+initializeCoins();
+    
 /* =========================================================
    GLOBALE FUNKTIONEN
 ========================================================= */
