@@ -2514,3 +2514,88 @@ button:focus-visible {
     }
 
 }
+
+/* =========================================================
+   FREUNDE – KÖNIGSBLITZ
+========================================================= */
+
+.friends-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 30px;
+    margin-bottom: 22px;
+
+    padding: 18px 20px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.friends-counter {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.friends-counter-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.06);
+
+    font-size: 18px;
+}
+
+.friends-counter strong {
+    display: block;
+    font-size: 20px;
+}
+
+.friends-counter div span {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 12px;
+
+    opacity: 0.5;
+}
+
+
+.friends-list {
+    width: 100%;
+}
+
+
+.friends-list .empty-card {
+    margin-top: 0;
+    min-height: 280px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .friends-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .friends-toolbar .primary-button {
+        width: 100%;
+    }
+
+}
