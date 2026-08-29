@@ -479,17 +479,18 @@ function hasPurchased(itemName) {
    KAUFEN
 ===================================================== */
 
+/* =========================================================
+   SHOP – ARTIKEL KAUFEN
+========================================================= */
+
 function buyItem(itemName, price) {
 
-    console.log(
-        "Kauf gestartet:",
-        itemName,
-        price
-    );
-
+    /* Preis sicher als Zahl behandeln */
 
     price = Number(price);
 
+
+    /* Ungültige Daten abfangen */
 
     if (
         !itemName ||
@@ -505,6 +506,256 @@ function buyItem(itemName, price) {
 
     }
 
+
+    /* =====================================================
+       AKTUELLES GUTHABEN LADEN
+    ===================================================== */
+
+    let coins = parseInt(
+        localStorage.getItem("kingsblitzCoins"),
+        10
+    );
+
+
+    /* Falls noch kein Guthaben vorhanden ist */
+
+    if (isNaN(coins)) {
+
+        coins = 100;
+
+        localStorage.setItem(
+            "kingsblitzCoins",
+            coins
+        );
+
+    }
+
+
+    /* =====================================================
+       BEREITS GEKAUFTE ARTIKEL
+    ===================================================== */
+
+    let purchasedItems = [];
+
+    try {
+
+        purchasedItems =
+            JSON.parse(
+                localStorage.getItem(
+                    "kingsblitzPurchasedItems"
+                )
+            ) || [];
+
+    } catch (error) {
+
+        purchasedItems = [];
+
+    }
+
+
+    /* =====================================================
+       PRÜFEN, OB ARTIKEL BEREITS GEKAUFT WURDE
+    ===================================================== */
+
+    if (
+        purchasedItems.includes(itemName)
+    ) {
+
+        showMessage(
+            itemName +
+            " wurde bereits gekauft."
+        );
+
+        updateShopButtons();
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       COINS PRÜFEN
+    ===================================================== */
+
+    if (coins < price) {
+
+        showMessage(
+            "Du hast nicht genügend Coins."
+        );
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       KAUF DURCHFÜHREN
+    ===================================================== */
+
+    coins -= price;
+
+
+    /* Neues Guthaben speichern */
+
+    localStorage.setItem(
+        "kingsblitzCoins",
+        coins
+    );
+
+
+    /* Artikel als gekauft speichern */
+
+    purchasedItems.push(
+        itemName
+    );
+
+
+    localStorage.setItem(
+        "kingsblitzPurchasedItems",
+        JSON.stringify(
+            purchasedItems
+        )
+    );
+
+
+    /* =====================================================
+       COINS AKTUALISIEREN
+    ===================================================== */
+
+    updateCoins();
+
+
+    /* =====================================================
+       SHOP-BUTTONS AKTUALISIEREN
+    ===================================================== */
+
+    updateShopButtons();
+
+
+    /* =====================================================
+       ERFOLGSMELDUNG
+    ===================================================== */
+
+    showMessage(
+        itemName +
+        " wurde erfolgreich gekauft! 🎉"
+    );
+
+}
+
+
+/* =========================================================
+   SHOP-BUTTONS AKTUALISIEREN
+========================================================= */
+
+function updateShopButtons() {
+
+    let purchasedItems = [];
+
+    try {
+
+        purchasedItems =
+            JSON.parse(
+                localStorage.getItem(
+                    "kingsblitzPurchasedItems"
+                )
+            ) || [];
+
+    } catch (error) {
+
+        purchasedItems = [];
+
+    }
+
+
+    const shopItems =
+        document.querySelectorAll(
+            ".shop-item-large"
+        );
+
+
+    shopItems.forEach(function(item) {
+
+        const titleElement =
+            item.querySelector(
+                ".shop-item-content h3"
+            );
+
+
+        const button =
+            item.querySelector(
+                ".shop-item-bottom button"
+            );
+
+
+        if (
+            !titleElement ||
+            !button
+        ) {
+
+            return;
+
+        }
+
+
+        const itemName =
+            titleElement.textContent.trim();
+
+
+        if (
+            purchasedItems.includes(itemName)
+        ) {
+
+            button.textContent =
+                "✓ Gekauft";
+
+            button.disabled = true;
+
+            button.classList.add(
+                "purchased"
+            );
+
+        } else {
+
+            button.textContent =
+                "Kaufen";
+
+            button.disabled = false;
+
+            button.classList.remove(
+                "purchased"
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   SHOP BEIM LADEN AKTUALISIEREN
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        updateShopButtons();
+
+    }
+);
+
+
+/* =========================================================
+   FUNKTION GLOBAL VERFÜGBAR MACHEN
+========================================================= */
+
+window.buyItem =
+    buyItem;
+
+window.updateShopButtons =
+    updateShopButtons;
 
     /* Bereits gekauft */
 
