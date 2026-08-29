@@ -1166,43 +1166,31 @@
 
 <script>
 
-
 /* =========================================================
-   SEITENTITEL
+   KÖNIGSBLITZ – NAVIGATION
 ========================================================= */
 
 const pageTitles = {
-
     overview: "Übersicht",
-
     play: "Spielen",
-
     friends: "Freunde",
-
     ranking: "Ranking",
-
     messages: "Nachrichten",
-
     settings: "Einstellungen",
-
     shop: "Shop"
-
 };
 
 
-
 /* =========================================================
-   NAVIGATION
+   SEITE WECHSELN
 ========================================================= */
 
 function navigateTo(pageName) {
 
+    const pages = document.querySelectorAll(".page");
+    const navItems = document.querySelectorAll(".nav-item");
 
     /* Alle Seiten ausblenden */
-
-    const pages =
-        document.querySelectorAll(".page");
-
 
     pages.forEach(function(page) {
 
@@ -1211,149 +1199,187 @@ function navigateTo(pageName) {
     });
 
 
-    /* Gewünschte Seite anzeigen */
+    /* Gewählte Seite anzeigen */
 
-    const selectedPage =
-        document.querySelector(
-            '.page[data-page="' + pageName + '"]'
-        );
-
+    const selectedPage = document.querySelector(
+        '.page[data-page="' + pageName + '"]'
+    );
 
     if (selectedPage) {
 
-        selectedPage.classList.add(
-            "active-page"
-        );
+        selectedPage.classList.add("active-page");
 
     }
 
 
     /* Navigation aktualisieren */
 
-    const navItems =
-        document.querySelectorAll(".nav-item");
-
-
     navItems.forEach(function(item) {
 
         item.classList.remove("active");
 
+        if (item.dataset.page === pageName) {
+
+            item.classList.add("active");
+
+        }
+
     });
 
 
-    const activeNav =
-        document.querySelector(
-            '.nav-item[data-page="' + pageName + '"]'
-        );
+    /* Überschrift ändern */
 
-
-    if (activeNav) {
-
-        activeNav.classList.add("active");
-
-    }
-
-
-    /* Seitentitel ändern */
-
-    const title =
+    const titleElement =
         document.getElementById("page-title");
 
+    if (titleElement) {
 
-    if (title) {
-
-        title.textContent =
+        titleElement.textContent =
             pageTitles[pageName] || "Königsblitz";
 
     }
 
+}
 
-    /* Seite nach oben scrollen */
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+/* =========================================================
+   NAVIGATION DER LINKEN SEITE
+========================================================= */
+
+document.querySelectorAll(".nav-item").forEach(function(item) {
+
+    item.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        const pageName =
+            this.dataset.page;
+
+        navigateTo(pageName);
+
     });
+
+});
+
+
+/* =========================================================
+   SCHNELL SPIELEN
+========================================================= */
+
+function startQuickGame() {
+
+    showMessage(
+        "Gegnersuche wird vorbereitet …"
+    );
 
 }
 
 
-
 /* =========================================================
-   SIDEBAR NAVIGATION
+   RAUM ERSTELLEN
 ========================================================= */
 
-document
-    .querySelectorAll(".nav-item")
-    .forEach(function(button) {
+function createRoom() {
 
-        button.addEventListener(
-            "click",
-            function() {
+    showMessage(
+        "Raum wird erstellt …"
+    );
 
-                const page =
-                    this.dataset.page;
-
-                navigateTo(page);
-
-            }
-        );
-
-    });
-
+}
 
 
 /* =========================================================
-   INTERNE SEITEN-BUTTONS
+   RAUM BEITRETEN
 ========================================================= */
 
-document
-    .querySelectorAll("[data-page-button]")
-    .forEach(function(button) {
+function joinRoom() {
 
-        button.addEventListener(
-            "click",
-            function() {
+    const input =
+        document.getElementById("room-code");
 
-                const page =
-                    this.dataset.pageButton;
+    if (!input) {
+        return;
+    }
 
-                navigateTo(page);
+    const code =
+        input.value.trim();
 
-            }
+    if (!code) {
+
+        input.focus();
+
+        showMessage(
+            "Bitte gib einen Raumcode ein."
         );
 
-    });
+        return;
+    }
 
+    showMessage(
+        "Raum " + code + " wird geöffnet …"
+    );
+
+}
 
 
 /* =========================================================
-   TOAST MELDUNG
+   FREUND HINZUFÜGEN
+========================================================= */
+
+function addFriend() {
+
+    showMessage(
+        "Freund hinzufügen kommt als Nächstes."
+    );
+
+}
+
+
+/* =========================================================
+   SHOP
+========================================================= */
+
+function buyItem(itemName, price) {
+
+    showMessage(
+        itemName +
+        " für " +
+        price +
+        " Coins ausgewählt."
+    );
+
+}
+
+
+/* =========================================================
+   NACHRICHT / TOAST
 ========================================================= */
 
 function showMessage(message) {
 
-
-    const toast =
+    let toast =
         document.getElementById("kb-toast");
 
-
     if (!toast) {
-        return;
-    }
 
+        toast =
+            document.createElement("div");
+
+        toast.id =
+            "kb-toast";
+
+        document.body.appendChild(toast);
+
+    }
 
     toast.textContent =
         message;
 
-
     toast.classList.add("show");
-
 
     clearTimeout(
         window.kbToastTimer
     );
-
 
     window.kbToastTimer =
         setTimeout(function() {
@@ -1365,329 +1391,44 @@ function showMessage(message) {
 }
 
 
-
 /* =========================================================
-   COINS
+   GLOBALE FUNKTIONEN
 ========================================================= */
 
-let coins =
-    parseInt(
-        localStorage.getItem("koenigsblitzCoins")
-    );
+window.navigateTo =
+    navigateTo;
 
+window.startQuickGame =
+    startQuickGame;
 
-if (isNaN(coins)) {
+window.createRoom =
+    createRoom;
 
-    coins = 100;
+window.joinRoom =
+    joinRoom;
 
-    localStorage.setItem(
-        "koenigsblitzCoins",
-        coins
-    );
+window.addFriend =
+    addFriend;
 
-}
+window.buyItem =
+    buyItem;
 
-
-
-/* COINS ANZEIGEN */
-
-function updateCoins() {
-
-
-    const coinElements =
-        document.querySelectorAll(
-            "#coin-count, #shop-coins, #settings-coins"
-        );
-
-
-    coinElements.forEach(function(element) {
-
-        element.textContent =
-            coins;
-
-    });
-
-}
-
-
-updateCoins();
-
+window.showMessage =
+    showMessage;
 
 
 /* =========================================================
-   SCHNELL SPIELEN
+   STANDARDSEITE
 ========================================================= */
 
-const quickPlayButton =
-    document.getElementById(
-        "quick-play-button"
-    );
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
+        navigateTo("overview");
 
-if (quickPlayButton) {
-
-    quickPlayButton.addEventListener(
-        "click",
-        function() {
-
-            showMessage(
-                "Gegnersuche wird vorbereitet …"
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   RAUM ERSTELLEN
-========================================================= */
-
-const createRoomButton =
-    document.getElementById(
-        "create-room-button"
-    );
-
-
-if (createRoomButton) {
-
-    createRoomButton.addEventListener(
-        "click",
-        function() {
-
-            const roomCode =
-                Math.random()
-                    .toString(36)
-                    .substring(2, 8)
-                    .toUpperCase();
-
-
-            showMessage(
-                "Raum erstellt: " +
-                roomCode
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   RAUM BEITRETEN
-========================================================= */
-
-const joinRoomButton =
-    document.getElementById(
-        "join-room-button"
-    );
-
-
-if (joinRoomButton) {
-
-    joinRoomButton.addEventListener(
-        "click",
-        function() {
-
-
-            const input =
-                document.getElementById(
-                    "room-code"
-                );
-
-
-            if (!input) {
-                return;
-            }
-
-
-            const code =
-                input.value.trim();
-
-
-            if (!code) {
-
-                showMessage(
-                    "Bitte gib einen Raumcode ein."
-                );
-
-                input.focus();
-
-                return;
-
-            }
-
-
-            showMessage(
-                "Raum " +
-                code +
-                " wird geöffnet …"
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   FREUND HINZUFÜGEN
-========================================================= */
-
-const addFriendButton =
-    document.getElementById(
-        "add-friend-button"
-    );
-
-
-if (addFriendButton) {
-
-    addFriendButton.addEventListener(
-        "click",
-        function() {
-
-            showMessage(
-                "Freund hinzufügen kommt als Nächstes."
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   PROFIL BEARBEITEN
-========================================================= */
-
-const editProfileButton =
-    document.getElementById(
-        "edit-profile-button"
-    );
-
-
-if (editProfileButton) {
-
-    editProfileButton.addEventListener(
-        "click",
-        function() {
-
-            showMessage(
-                "Profil bearbeiten kommt als Nächstes."
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   SHOP
-========================================================= */
-
-document
-    .querySelectorAll(".shop-buy")
-    .forEach(function(button) {
-
-
-        button.addEventListener(
-            "click",
-            function() {
-
-
-                const item =
-                    this.dataset.item;
-
-
-                const price =
-                    parseInt(
-                        this.dataset.price
-                    );
-
-
-                if (coins < price) {
-
-                    showMessage(
-                        "Nicht genügend Coins."
-                    );
-
-                    return;
-
-                }
-
-
-                coins -= price;
-
-
-                localStorage.setItem(
-                    "koenigsblitzCoins",
-                    coins
-                );
-
-
-                updateCoins();
-
-
-                showMessage(
-                    item +
-                    " wurde gekauft! 🎉"
-                );
-
-
-            }
-        );
-
-
-    });
-
-
-
-/* =========================================================
-   ENTER-TASTE BEIM RAUMCODE
-========================================================= */
-
-const roomInput =
-    document.getElementById(
-        "room-code"
-    );
-
-
-if (roomInput) {
-
-    roomInput.addEventListener(
-        "keydown",
-        function(event) {
-
-            if (event.key === "Enter") {
-
-                if (joinRoomButton) {
-
-                    joinRoomButton.click();
-
-                }
-
-            }
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   STARTSEITE
-========================================================= */
-
-navigateTo("overview");
-
+    }
+);
 
 </script>
 
