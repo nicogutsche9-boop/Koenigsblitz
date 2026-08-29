@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -10,609 +12,499 @@
 
     <meta
         name="description"
-        content="Königsblitz – Schach. Strategie. Du."
+        content="Königsblitz – Deine Schacharena."
     >
 
     <title>Königsblitz</title>
 
-    <!-- Unser Design -->
     <link
         rel="stylesheet"
         href="css/style.css"
     >
+
 </head>
+
 
 <body>
 
+
 <div class="app">
 
-    <!-- ==================================================
-         LINKe NAVIGATION
-    =================================================== -->
+
+    <!-- =====================================================
+         LINKE NAVIGATION
+    ====================================================== -->
 
     <aside class="sidebar">
+
 
         <!-- LOGO -->
 
         <div class="brand">
 
-            <div class="brand-crown">
+            <div class="brand-logo">
                 ♛
             </div>
 
-            <div class="brand-name">
-                KÖNIGSBLITZ
-            </div>
+            <div class="brand-text">
 
-            <div class="brand-subtitle">
-                SCHACH. STRATEGIE. DU.
+                <strong>
+                    Königs<span>blitz</span>
+                </strong>
+
+                <small>
+                    DEINE SCHACHARENA
+                </small>
+
             </div>
 
         </div>
+
 
 
         <!-- NAVIGATION -->
 
         <nav class="navigation">
 
+
             <button
                 class="nav-item active"
                 data-page="overview"
             >
-                <span class="nav-icon">⌂</span>
-                <span>Übersicht</span>
+
+                <span class="nav-icon">
+                    ⌂
+                </span>
+
+                <span>
+                    Übersicht
+                </span>
+
             </button>
+
 
 
             <button
                 class="nav-item"
                 data-page="play"
             >
-                <span class="nav-icon">♞</span>
-                <span>Spielen</span>
+
+                <span class="nav-icon">
+                    ♟
+                </span>
+
+                <span>
+                    Spielen
+                </span>
+
             </button>
+
 
 
             <button
                 class="nav-item"
                 data-page="friends"
             >
-                <span class="nav-icon">♟</span>
-                <span>Freunde</span>
+
+                <span class="nav-icon">
+                    ♟♟
+                </span>
+
+                <span>
+                    Freunde
+                </span>
+
             </button>
+
 
 
             <button
                 class="nav-item"
                 data-page="ranking"
             >
-                <span class="nav-icon">♜</span>
-                <span>Ranking</span>
+
+                <span class="nav-icon">
+                    ♛
+                </span>
+
+                <span>
+                    Ranking
+                </span>
+
             </button>
+
 
 
             <button
                 class="nav-item"
                 data-page="messages"
             >
-                <span class="nav-icon">✉</span>
-                <span>Nachrichten</span>
 
-                <span class="notification-badge">
-                    0
+                <span class="nav-icon">
+                    ●
                 </span>
+
+                <span>
+                    Nachrichten
+                </span>
+
+                <b class="nav-badge">
+                    0
+                </b>
+
             </button>
+
 
 
             <button
                 class="nav-item"
                 data-page="settings"
             >
-                <span class="nav-icon">⚙</span>
-                <span>Einstellungen</span>
+
+                <span class="nav-icon">
+                    ⚙
+                </span>
+
+                <span>
+                    Einstellungen
+                </span>
+
             </button>
+
 
 
             <button
                 class="nav-item"
                 data-page="shop"
             >
-                <span class="nav-icon">♙</span>
-                <span>Shop</span>
+
+                <span class="nav-icon">
+                    🛒
+                </span>
+
+                <span>
+                    Shop
+                </span>
+
             </button>
+
 
         </nav>
 
 
-        <!-- MÜNZEN -->
 
-        <div class="sidebar-coins">
+        <!-- BENUTZER -->
 
-            <div class="coin-icon">
-                🪙
+        <div class="sidebar-user">
+
+            <div class="sidebar-avatar">
+                N
             </div>
 
-            <div class="coin-information">
-
-                <span>
-                    Münzen
-                </span>
+            <div>
 
                 <strong>
-                    1.250
+                    Nico
                 </strong>
+
+                <small>
+                    1250 Rating
+                </small>
 
             </div>
 
-            <button
-                class="coin-add"
-                type="button"
-            >
-                +
-            </button>
+        </div>
+
+
+
+        <div class="sidebar-version">
+
+            Königsblitz
+
+            <span>
+                Version 1.0
+            </span>
 
         </div>
+
 
     </aside>
 
 
 
-    <!-- ==================================================
+    <!-- =====================================================
          HAUPTBEREICH
-    =================================================== -->
+    ====================================================== -->
 
-    <main class="main-content">
+    <main class="main">
 
 
-        <!-- ==================================================
+        <!-- =================================================
              TOPBAR
-        =================================================== -->
+        ================================================== -->
 
         <header class="topbar">
 
-            <div class="welcome">
 
-                <h1>
-                    Hallo
-                    <span>Nico!</span>
-                    👋
+            <div class="topbar-left">
+
+                <span class="topbar-subtitle">
+                    SCHACHARENA
+                </span>
+
+                <h1 id="page-title">
+                    Übersicht
                 </h1>
-
-                <p>
-                    Bereit für deinen nächsten Zug?
-                </p>
 
             </div>
 
 
-            <div class="user-area">
 
-                <div class="user-rank">
-
-                    <div class="user-crown">
-                        ♛
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Nico
-                        </strong>
-
-                        <span>
-                            🟫 Bronze
-                        </span>
-
-                    </div>
-
-                </div>
+            <div class="topbar-right">
 
 
-                <div class="top-coins">
+                <!-- COINS -->
+
+                <div class="coin-display">
 
                     <span>
                         🪙
                     </span>
 
                     <strong>
-                        1.250
+                        100
                     </strong>
 
                 </div>
 
+
+
+                <!-- PROFIL -->
+
+                <button
+                    class="profile-button"
+                    type="button"
+                    onclick="navigateTo('settings')"
+                >
+
+                    <span class="profile-avatar">
+                        N
+                    </span>
+
+                    <span class="profile-name">
+                        Nico
+                    </span>
+
+                </button>
+
+
             </div>
+
 
         </header>
 
 
 
-        <!-- ==================================================
-             SEITEN / VIEWS
-        =================================================== -->
+        <!-- =================================================
+             SEITENBEREICH
+        ================================================== -->
 
-        <div class="page-container">
+        <div class="pages">
 
 
-            <!-- ==================================================
+
+            <!-- =================================================
                  ÜBERSICHT
-            =================================================== -->
+            ================================================== -->
 
             <section
-                id="page-overview"
                 class="page active-page"
+                data-page="overview"
             >
 
-                <div class="dashboard-grid">
 
+                <div class="welcome-block">
 
-                    <!-- ==============================
-                         MITTLERER BEREICH
-                    =============================== -->
+                    <span class="eyebrow">
+                        WILLKOMMEN ZURÜCK
+                    </span>
 
-                    <div class="dashboard-main">
+                    <h2>
+                        Bereit für deinen
+                        <span>nächsten Zug?</span>
+                    </h2>
 
+                    <p>
+                        Spiele eine schnelle Partie
+                        oder entdecke die aktuellen
+                        Angebote im Shop.
+                    </p>
 
-                        <!-- SCHNELL SPIELEN -->
-
-                        <section class="quick-play-card">
-
-                            <div class="quick-play-content">
-
-                                <span class="section-label">
-                                    SCHNELL SPIELEN
-                                </span>
-
-                                <h2>
-                                    Starte eine
-                                    <span>
-                                        schnelle Partie
-                                    </span>
-                                </h2>
-
-                                <p>
-                                    Finde jetzt einen Gegner
-                                    und teste deine Strategie.
-                                </p>
-
-                                <button
-                                    class="primary-button"
-                                    id="quick-play-button"
-                                >
-                                    <span>⚡</span>
-                                    JETZT SPIELEN
-                                </button>
-
-                            </div>
-
-
-                            <div class="quick-play-visual">
-
-                                <div class="chess-piece">
-                                    ♚
-                                </div>
-
-                                <div class="chess-piece-back">
-                                    ♟
-                                </div>
-
-                                <div class="chess-piece-back second">
-                                    ♟
-                                </div>
-
-                            </div>
-
-                        </section>
+                </div>
 
 
 
-                        <!-- SHOP HIGHLIGHTS -->
+                <!-- SCHNELL SPIELEN -->
 
-                        <section class="shop-highlights">
-
-                            <div class="section-heading">
-
-                                <h2>
-                                    Shop Highlights
-                                </h2>
-
-                                <button
-                                    class="text-button"
-                                    data-page-target="shop"
-                                >
-                                    Zum Shop →
-                                </button>
-
-                            </div>
+                <div class="quick-play-card">
 
 
-                            <div class="shop-preview-grid">
+                    <div class="quick-play-content">
 
+                        <span class="card-eyebrow">
+                            SCHNELL & DIREKT
+                        </span>
 
-                                <article class="shop-preview-item">
+                        <h3>
+                            Schnell spielen
+                        </h3>
 
-                                    <div class="shop-preview-image purple-preview">
-                                        ♟
-                                    </div>
+                        <p>
+                            Finde automatisch einen
+                            passenden Gegner.
+                        </p>
 
-                                    <div class="shop-preview-info">
+                        <button
+                            class="primary-button"
+                            type="button"
+                            onclick="startQuickGame()"
+                        >
 
-                                        <span class="shop-tag new">
-                                            NEU
-                                        </span>
+                            <span>
+                                ⚡
+                            </span>
 
-                                        <h3>
-                                            Mysteriöse Figur
-                                        </h3>
+                            Schnell spielen
 
-                                        <strong>
-                                            🪙 750
-                                        </strong>
-
-                                    </div>
-
-                                </article>
-
-
-
-                                <article class="shop-preview-item">
-
-                                    <div class="shop-preview-image blue-preview">
-                                        ♛
-                                    </div>
-
-                                    <div class="shop-preview-info">
-
-                                        <span class="shop-tag discount">
-                                            -20%
-                                        </span>
-
-                                        <h3>
-                                            Königsbrett – Nacht
-                                        </h3>
-
-                                        <strong>
-                                            🪙 600
-                                        </strong>
-
-                                    </div>
-
-                                </article>
-
-
-
-                                <article class="shop-preview-item">
-
-                                    <div class="shop-preview-image green-preview">
-                                        ♜
-                                    </div>
-
-                                    <div class="shop-preview-info">
-
-                                        <span class="shop-tag offer">
-                                            ANGEBOT
-                                        </span>
-
-                                        <h3>
-                                            Turm der Macht
-                                        </h3>
-
-                                        <strong>
-                                            🪙 500
-                                        </strong>
-
-                                    </div>
-
-                                </article>
-
-                            </div>
-
-                        </section>
+                        </button>
 
                     </div>
 
 
 
-                    <!-- ==============================
-                         RECHTE SEITENLEISTE
-                    =============================== -->
+                    <div class="quick-play-chess">
+                        ♞
+                    </div>
 
-                    <aside class="dashboard-right">
-
-
-                        <!-- PROFIL -->
-
-                        <section class="dashboard-card profile-card">
-
-                            <div class="card-heading">
-                                Dein Profil
-                            </div>
-
-
-                            <div class="profile-user">
-
-                                <div class="profile-avatar">
-                                    ♛
-                                </div>
-
-                                <div class="profile-user-info">
-
-                                    <h3>
-                                        Nico
-                                    </h3>
-
-                                    <span class="online-status">
-                                        <i></i>
-                                        Online
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="profile-stats">
-
-                                <div>
-                                    <strong>
-                                        1250
-                                    </strong>
-
-                                    <span>
-                                        Rating
-                                    </span>
-                                </div>
-
-
-                                <div>
-                                    <strong>
-                                        56%
-                                    </strong>
-
-                                    <span>
-                                        Gewinnrate
-                                    </span>
-                                </div>
-
-
-                                <div>
-                                    <strong>
-                                        28
-                                    </strong>
-
-                                    <span>
-                                        Gespielte
-                                    </span>
-                                </div>
-
-                            </div>
-
-
-                            <button
-                                class="secondary-button"
-                                id="profile-button"
-                            >
-                                PROFIL ANSEHEN
-                            </button>
-
-                        </section>
-
-
-
-                        <!-- TÄGLICHE HERAUSFORDERUNG -->
-
-                        <section class="dashboard-card challenge-card">
-
-                            <div class="card-heading">
-
-                                <span>
-                                    🎯
-                                </span>
-
-                                Tägliche Herausforderung
-
-                            </div>
-
-
-                            <h3>
-                                Gewinne 3 Partien
-                            </h3>
-
-
-                            <div class="progress-row">
-
-                                <div class="progress-bar">
-
-                                    <span
-                                        style="width: 66%;"
-                                    ></span>
-
-                                </div>
-
-                                <span>
-                                    2 / 3
-                                </span>
-
-                            </div>
-
-
-                            <div class="reward-row">
-
-                                <span>
-                                    Belohnung:
-                                </span>
-
-                                <strong>
-                                    +100 🪙
-                                </strong>
-
-                            </div>
-
-                        </section>
-
-
-
-                        <!-- LETZTE PARTIE -->
-
-                        <section class="dashboard-card last-game-card">
-
-                            <div class="card-heading">
-
-                                <span>
-                                    ⚔
-                                </span>
-
-                                Letzte Partie
-
-                            </div>
-
-
-                            <div class="last-game-result">
-
-                                <strong>
-                                    Sieg
-                                </strong>
-
-                                <span>
-                                    vs. ChessMaster
-                                </span>
-
-                                <small>
-                                    Rating +12
-                                </small>
-
-                            </div>
-
-
-                            <button
-                                class="secondary-button"
-                                id="last-game-button"
-                            >
-                                PARTIE ANSEHEN
-                            </button>
-
-                        </section>
-
-                    </aside>
 
                 </div>
+
+
+
+                <!-- SHOP ANGEBOT -->
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span>
+                            SHOP
+                        </span>
+
+                        <h3>
+                            Aktuell im Angebot
+                        </h3>
+
+                    </div>
+
+                    <button
+                        class="text-button"
+                        type="button"
+                        onclick="navigateTo('shop')"
+                    >
+                        Zum Shop →
+                    </button>
+
+                </div>
+
+
+
+                <div class="offer-grid">
+
+
+                    <article class="offer-card">
+
+                        <div class="offer-icon">
+                            ♛
+                        </div>
+
+                        <div>
+
+                            <span class="offer-label">
+                                PROFIL
+                            </span>
+
+                            <h4>
+                                König-Rahmen
+                            </h4>
+
+                            <p>
+                                Ein besonderer Rahmen
+                                für dein Profil.
+                            </p>
+
+                        </div>
+
+                        <strong>
+                            50 🪙
+                        </strong>
+
+                    </article>
+
+
+
+                    <article class="offer-card">
+
+                        <div class="offer-icon">
+                            ♜
+                        </div>
+
+                        <div>
+
+                            <span class="offer-label">
+                                SCHACHBRETT
+                            </span>
+
+                            <h4>
+                                Nachtbrett
+                            </h4>
+
+                            <p>
+                                Ein dunkler Look für
+                                deine Partien.
+                            </p>
+
+                        </div>
+
+                        <strong>
+                            75 🪙
+                        </strong>
+
+                    </article>
+
+
+
+                </div>
+
 
             </section>
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  SPIELEN
-            =================================================== -->
+            ================================================== -->
 
             <section
-                id="page-play"
                 class="page"
+                data-page="play"
             >
 
-                <div class="page-title">
 
-                    <span>
-                        SPIELEN
+                <div class="page-intro">
+
+                    <span class="eyebrow">
+                        SPIELMODI
                     </span>
 
                     <h2>
@@ -620,39 +512,45 @@
                     </h2>
 
                     <p>
-                        Wähle eine Spielart aus.
+                        Wähle eine Möglichkeit,
+                        um deine nächste Partie zu starten.
                     </p>
 
                 </div>
 
 
-                <div class="option-grid">
+
+                <div class="play-options">
 
 
-                    <article class="option-card friends-option">
+                    <article class="option-card">
 
                         <div class="option-icon">
                             ♟♟
                         </div>
 
                         <h3>
-                            Mit Freunden spielen
+                            Mit Freunden
                         </h3>
 
                         <p>
-                            Fordere einen Freund zu
-                            einer Partie heraus.
+                            Spiele gegen jemanden
+                            aus deiner Freundesliste.
                         </p>
 
-                        <button class="option-button">
-                            AUSWÄHLEN →
+                        <button
+                            class="primary-button"
+                            type="button"
+                            onclick="navigateTo('friends')"
+                        >
+                            Freunde auswählen
                         </button>
 
                     </article>
 
 
 
-                    <article class="option-card join-option">
+                    <article class="option-card">
 
                         <div class="option-icon">
                             ↪
@@ -663,25 +561,34 @@
                         </h3>
 
                         <p>
-                            Tritt einem bestehenden
-                            Raum mit Code bei.
+                            Gib einen Raumcode ein
+                            und trete einer Partie bei.
                         </p>
 
-                        <input
-                            type="text"
-                            placeholder="Raumcode"
-                            maxlength="12"
-                        >
+                        <div class="join-row">
 
-                        <button class="option-button">
-                            BEITRETEN →
-                        </button>
+                            <input
+                                id="room-code"
+                                type="text"
+                                maxlength="12"
+                                placeholder="Raumcode"
+                            >
+
+                            <button
+                                class="primary-button"
+                                type="button"
+                                onclick="joinRoom()"
+                            >
+                                Beitreten
+                            </button>
+
+                        </div>
 
                     </article>
 
 
 
-                    <article class="option-card create-option">
+                    <article class="option-card">
 
                         <div class="option-icon">
                             +
@@ -692,35 +599,42 @@
                         </h3>
 
                         <p>
-                            Erstelle deinen eigenen
-                            Raum und lade andere ein.
+                            Erstelle deinen eigenen Raum
+                            und lade andere Spieler ein.
                         </p>
 
-                        <button class="option-button">
-                            RAUM ERSTELLEN →
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            onclick="createRoom()"
+                        >
+                            Raum erstellen
                         </button>
 
                     </article>
 
+
                 </div>
+
 
             </section>
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  FREUNDE
-            =================================================== -->
+            ================================================== -->
 
             <section
-                id="page-friends"
                 class="page"
+                data-page="friends"
             >
 
-                <div class="page-title">
 
-                    <span>
-                        SOZIAL
+                <div class="page-intro">
+
+                    <span class="eyebrow">
+                        COMMUNITY
                     </span>
 
                     <h2>
@@ -728,13 +642,15 @@
                     </h2>
 
                     <p>
-                        Spiele gemeinsam mit anderen Spielern.
+                        Verwalte deine Freunde und
+                        starte gemeinsame Partien.
                     </p>
 
                 </div>
 
 
-                <div class="empty-state">
+
+                <div class="empty-card">
 
                     <div class="empty-icon">
                         ♟
@@ -745,32 +661,38 @@
                     </h3>
 
                     <p>
-                        Füge Spieler hinzu und fordere
-                        sie zu einer Partie heraus.
+                        Deine Freundesliste ist momentan
+                        noch leer.
                     </p>
 
-                    <button class="primary-button">
-                        + FREUND HINZUFÜGEN
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="addFriend()"
+                    >
+                        + Freund hinzufügen
                     </button>
 
                 </div>
+
 
             </section>
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  RANKING
-            =================================================== -->
+            ================================================== -->
 
             <section
-                id="page-ranking"
                 class="page"
+                data-page="ranking"
             >
 
-                <div class="page-title">
 
-                    <span>
+                <div class="page-intro">
+
+                    <span class="eyebrow">
                         WETTBEWERB
                     </span>
 
@@ -779,44 +701,108 @@
                     </h2>
 
                     <p>
-                        Vergleiche dich mit anderen Spielern.
+                        Vergleiche dein Rating mit
+                        anderen Spielern.
                     </p>
 
                 </div>
 
 
-                <div class="ranking-placeholder">
 
-                    <div class="ranking-number">
-                        #1
+                <div class="ranking-card">
+
+
+                    <div class="ranking-row ranking-header">
+
+                        <span>
+                            #
+                        </span>
+
+                        <span>
+                            Spieler
+                        </span>
+
+                        <span>
+                            Rating
+                        </span>
+
                     </div>
 
-                    <h3>
-                        Königsblitz Ranking
-                    </h3>
 
-                    <p>
-                        Die Rangliste wird hier angezeigt.
-                    </p>
+
+                    <div class="ranking-row">
+
+                        <span>
+                            1
+                        </span>
+
+                        <strong>
+                            ChessMaster
+                        </strong>
+
+                        <span>
+                            1540
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="ranking-row">
+
+                        <span>
+                            2
+                        </span>
+
+                        <strong>
+                            BlitzKing
+                        </strong>
+
+                        <span>
+                            1485
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="ranking-row current-player">
+
+                        <span>
+                            12
+                        </span>
+
+                        <strong>
+                            Nico
+                        </strong>
+
+                        <span>
+                            1250
+                        </span>
+
+                    </div>
+
 
                 </div>
+
 
             </section>
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  NACHRICHTEN
-            =================================================== -->
+            ================================================== -->
 
             <section
-                id="page-messages"
                 class="page"
+                data-page="messages"
             >
 
-                <div class="page-title">
 
-                    <span>
+                <div class="page-intro">
+
+                    <span class="eyebrow">
                         KOMMUNIKATION
                     </span>
 
@@ -825,16 +811,18 @@
                     </h2>
 
                     <p>
-                        Deine Nachrichten und Spielanfragen.
+                        Hier findest du später deine
+                        Nachrichten und Spielanfragen.
                     </p>
 
                 </div>
 
 
-                <div class="empty-state">
+
+                <div class="empty-card">
 
                     <div class="empty-icon">
-                        ✉
+                        ●
                     </div>
 
                     <h3>
@@ -842,28 +830,30 @@
                     </h3>
 
                     <p>
-                        Hier erscheinen später deine
-                        Nachrichten und Anfragen.
+                        Du hast momentan keine
+                        ungelesenen Nachrichten.
                     </p>
 
                 </div>
+
 
             </section>
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  EINSTELLUNGEN
-            =================================================== -->
+            ================================================== -->
 
             <section
-                id="page-settings"
                 class="page"
+                data-page="settings"
             >
 
-                <div class="page-title">
 
-                    <span>
+                <div class="page-intro">
+
+                    <span class="eyebrow">
                         KONTO
                     </span>
 
@@ -872,117 +862,128 @@
                     </h2>
 
                     <p>
-                        Passe Königsblitz an deine Wünsche an.
+                        Verwalte dein Profil und
+                        deine persönlichen Einstellungen.
                     </p>
 
                 </div>
 
 
-                <div class="settings-list">
 
-                    <div class="settings-item">
+                <div class="settings-card">
+
+
+                    <div class="setting-row">
 
                         <div>
+
                             <strong>
-                                Profil
+                                Profilname
                             </strong>
 
                             <span>
-                                Name und Profilinformationen
+                                Nico
                             </span>
+
                         </div>
 
-                        <button>
-                            →
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            onclick="showMessage('Profil bearbeiten kommt später.')"
+                        >
+                            Bearbeiten
                         </button>
 
                     </div>
 
 
-                    <div class="settings-item">
+
+                    <div class="setting-row">
 
                         <div>
+
                             <strong>
-                                Darstellung
+                                Rating
                             </strong>
 
                             <span>
-                                Aussehen und Oberfläche
+                                1250
                             </span>
-                        </div>
 
-                        <button>
-                            →
-                        </button>
+                        </div>
 
                     </div>
 
 
-                    <div class="settings-item">
+
+                    <div class="setting-row">
 
                         <div>
+
                             <strong>
-                                Benachrichtigungen
+                                Konto
                             </strong>
 
                             <span>
-                                Nachrichten und Hinweise
+                                Königsblitz-Konto
                             </span>
+
                         </div>
 
-                        <button>
-                            →
-                        </button>
-
                     </div>
+
 
                 </div>
+
 
             </section>
 
 
 
-            <!-- ==================================================
+            <!-- =================================================
                  SHOP
-            =================================================== -->
+            ================================================== -->
 
             <section
-                id="page-shop"
                 class="page"
+                data-page="shop"
             >
 
-                <div class="page-title shop-page-title">
+
+                <div class="page-intro shop-intro">
 
                     <div>
 
-                        <span>
+                        <span class="eyebrow">
                             KÖNIGSBLITZ SHOP
                         </span>
 
                         <h2>
-                            Dein Spiel. Dein Stil.
+                            Dein persönlicher Shop
                         </h2>
 
                         <p>
-                            Schalte neue Designs,
-                            Figuren und Extras frei.
+                            Schalte neue Designs und
+                            kosmetische Extras frei.
                         </p>
 
                     </div>
 
 
-                    <div class="shop-balance">
+
+                    <div class="shop-coins">
 
                         <span>
                             🪙
                         </span>
 
                         <strong>
-                            1.250
+                            100
                         </strong>
 
                         <small>
-                            Münzen
+                            Coins
                         </small>
 
                     </div>
@@ -990,170 +991,403 @@
                 </div>
 
 
-                <div class="shop-category">
 
-                    <h3>
-                        Figuren
-                    </h3>
-
-                    <div class="full-shop-grid">
+                <div class="shop-grid">
 
 
-                        <article class="shop-card">
+                    <article class="shop-item">
 
-                            <div class="shop-card-image purple-preview">
-                                ♟
-                            </div>
 
-                            <div class="shop-card-content">
+                        <div class="shop-preview">
+                            ♛
+                        </div>
 
-                                <span class="shop-tag new">
-                                    NEU
-                                </span>
 
-                                <h3>
-                                    Mysteriöse Figur
-                                </h3>
+                        <div class="shop-item-content">
 
-                                <p>
-                                    Ein geheimnisvoller Look
-                                    für deine Partien.
-                                </p>
+                            <span>
+                                PROFIL
+                            </span>
 
-                                <div class="shop-price">
-                                    🪙 750
-                                </div>
+                            <h3>
+                                König-Rahmen
+                            </h3>
 
-                                <button>
-                                    KAUFEN
-                                </button>
+                            <p>
+                                Ein edler Rahmen für
+                                dein Profil.
+                            </p>
 
-                            </div>
+                            <button
+                                class="primary-button"
+                                type="button"
+                                onclick="buyItem('König-Rahmen', 50)"
+                            >
+                                50 🪙 kaufen
+                            </button>
 
-                        </article>
+                        </div>
+
+
+                    </article>
 
 
 
-                        <article class="shop-card">
-
-                            <div class="shop-card-image blue-preview">
-                                ♛
-                            </div>
-
-                            <div class="shop-card-content">
-
-                                <span class="shop-tag discount">
-                                    -20%
-                                </span>
-
-                                <h3>
-                                    Königsbrett – Nacht
-                                </h3>
-
-                                <p>
-                                    Dunkles Design für
-                                    dein Schachbrett.
-                                </p>
-
-                                <div class="shop-price">
-                                    🪙 600
-                                </div>
-
-                                <button>
-                                    KAUFEN
-                                </button>
-
-                            </div>
-
-                        </article>
+                    <article class="shop-item">
 
 
+                        <div class="shop-preview">
+                            ♜
+                        </div>
 
-                        <article class="shop-card">
 
-                            <div class="shop-card-image green-preview">
-                                ♜
-                            </div>
+                        <div class="shop-item-content">
 
-                            <div class="shop-card-content">
+                            <span>
+                                SCHACHBRETT
+                            </span>
 
-                                <span class="shop-tag offer">
-                                    ANGEBOT
-                                </span>
+                            <h3>
+                                Nachtbrett
+                            </h3>
 
-                                <h3>
-                                    Turm der Macht
-                                </h3>
+                            <p>
+                                Ein moderner dunkler
+                                Look für deine Partien.
+                            </p>
 
-                                <p>
-                                    Ein besonderer Look
-                                    für deinen Turm.
-                                </p>
+                            <button
+                                class="primary-button"
+                                type="button"
+                                onclick="buyItem('Nachtbrett', 75)"
+                            >
+                                75 🪙 kaufen
+                            </button>
 
-                                <div class="shop-price">
-                                    🪙 500
-                                </div>
+                        </div>
 
-                                <button>
-                                    KAUFEN
-                                </button>
 
-                            </div>
-
-                        </article>
+                    </article>
 
 
 
-                        <article class="shop-card">
+                    <article class="shop-item">
 
-                            <div class="shop-card-image gold-preview">
-                                ♚
-                            </div>
 
-                            <div class="shop-card-content">
+                        <div class="shop-preview">
+                            ♞
+                        </div>
 
-                                <h3>
-                                    Goldener König
-                                </h3>
 
-                                <p>
-                                    Verleihe deinem Spiel
-                                    einen königlichen Stil.
-                                </p>
+                        <div class="shop-item-content">
 
-                                <div class="shop-price">
-                                    🪙 900
-                                </div>
+                            <span>
+                                FIGUR
+                            </span>
 
-                                <button>
-                                    KAUFEN
-                                </button>
+                            <h3>
+                                Blitz-Set
+                            </h3>
 
-                            </div>
+                            <p>
+                                Ein spezielles Figurenset
+                                für deine Partien.
+                            </p>
 
-                        </article>
+                            <button
+                                class="primary-button"
+                                type="button"
+                                onclick="buyItem('Blitz-Set', 100)"
+                            >
+                                100 🪙 kaufen
+                            </button>
 
-                    </div>
+                        </div>
+
+
+                    </article>
+
 
                 </div>
 
+
             </section>
+
 
         </div>
 
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="footer">
+
+            <span>
+                © 2026 Königsblitz
+            </span>
+
+            <span>
+                Deine Schacharena.
+            </span>
+
+        </footer>
+
+
     </main>
+
 
 </div>
 
 
-<!-- ==================================================
+
+<!-- =========================================================
      JAVASCRIPT
-     
-     Vorerst nur für die Navigation.
-     Die eigentliche Technik kommt später.
-================================================== -->
+========================================================= -->
 
 <script src="js/app.js"></script>
 
+
+<script>
+
+
+/* =========================================================
+   TITEL DER SEITEN
+========================================================= */
+
+const pageTitles = {
+
+    overview: "Übersicht",
+
+    play: "Spielen",
+
+    friends: "Freunde",
+
+    ranking: "Ranking",
+
+    messages: "Nachrichten",
+
+    settings: "Einstellungen",
+
+    shop: "Shop"
+
+};
+
+
+
+/* =========================================================
+   NAVIGATION ERGÄNZEN
+========================================================= */
+
+const originalShowPage =
+    window.Koenigsblitz.showPage;
+
+
+window.Koenigsblitz.showPage =
+    function(pageName) {
+
+        originalShowPage(pageName);
+
+
+        const title =
+            pageTitles[pageName] ||
+            "Königsblitz";
+
+
+        const titleElement =
+            document.getElementById("page-title");
+
+
+        if (titleElement) {
+
+            titleElement.textContent =
+                title;
+
+        }
+
+    };
+
+
+
+/* =========================================================
+   SCHNELL SPIELEN
+========================================================= */
+
+function startQuickGame() {
+
+    showMessage(
+        "Gegnersuche wird vorbereitet …"
+    );
+
+}
+
+
+
+/* =========================================================
+   RAUM ERSTELLEN
+========================================================= */
+
+function createRoom() {
+
+    showMessage(
+        "Raum wird erstellt …"
+    );
+
+}
+
+
+
+/* =========================================================
+   RAUM BEITRETEN
+========================================================= */
+
+function joinRoom() {
+
+    const input =
+        document.getElementById("room-code");
+
+
+    if (!input) {
+        return;
+    }
+
+
+    const code =
+        input.value.trim();
+
+
+    if (!code) {
+
+        input.focus();
+
+        showMessage(
+            "Bitte gib einen Raumcode ein."
+        );
+
+        return;
+
+    }
+
+
+    showMessage(
+        "Raum " +
+        code +
+        " wird geöffnet …"
+    );
+
+}
+
+
+
+/* =========================================================
+   FREUND HINZUFÜGEN
+========================================================= */
+
+function addFriend() {
+
+    showMessage(
+        "Freund hinzufügen kommt als Nächstes."
+    );
+
+}
+
+
+
+/* =========================================================
+   SHOP
+========================================================= */
+
+function buyItem(itemName, price) {
+
+    showMessage(
+        itemName +
+        " für " +
+        price +
+        " Coins ausgewählt."
+    );
+
+}
+
+
+
+/* =========================================================
+   NACHRICHT
+========================================================= */
+
+function showMessage(message) {
+
+    let toast =
+        document.getElementById("kb-toast");
+
+
+    if (!toast) {
+
+        toast =
+            document.createElement("div");
+
+        toast.id =
+            "kb-toast";
+
+        document.body.appendChild(
+            toast
+        );
+
+    }
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.kbToastTimer
+    );
+
+
+    window.kbToastTimer =
+        setTimeout(function() {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        }, 2200);
+
+}
+
+
+/* =========================================================
+   GLOBALE FUNKTIONEN
+========================================================= */
+
+window.startQuickGame =
+    startQuickGame;
+
+window.createRoom =
+    createRoom;
+
+window.joinRoom =
+    joinRoom;
+
+window.addFriend =
+    addFriend;
+
+window.buyItem =
+    buyItem;
+
+window.showMessage =
+    showMessage;
+
+
+</script>
+
+
 </body>
+
 </html>
