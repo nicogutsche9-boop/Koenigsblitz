@@ -1,215 +1,594 @@
 /* =========================================================
    KÖNIGSBLITZ
-   APP.JS – GRUNDNAVIGATION
-   Version 1.0
+   APP.JS
+   Navigation + Übersicht + Spielen
 ========================================================= */
 
-"use strict";
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       ELEMENTE
+    ===================================================== */
+
+    const navItems = document.querySelectorAll(".nav-item");
+    const pages = document.querySelectorAll(".page");
+
+    const toast = document.getElementById("kb-toast");
 
 
-/* =========================================================
-   APP START
-========================================================= */
+    /* =====================================================
+       HILFSFUNKTION – MELDUNG
+    ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+    window.showMessage = function(message) {
 
-    console.log("Königsblitz gestartet");
+        if (!toast) {
+            alert(message);
+            return;
+        }
 
-    initNavigation();
+        toast.textContent = message;
 
-});
+        toast.classList.add("show");
 
+        clearTimeout(window.kbToastTimer);
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+        window.kbToastTimer = setTimeout(() => {
 
-function initNavigation() {
+            toast.classList.remove("show");
 
-    const navigationButtons =
-        document.querySelectorAll(".nav-item");
+        }, 2200);
 
-    const pages =
-        document.querySelectorAll(".page");
+    };
 
 
-    /*
-        Falls noch keine Navigation vorhanden ist,
-        brechen wir sauber ab.
-    */
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
 
-    if (!navigationButtons.length) {
+    function openPage(pageName) {
 
-        console.warn(
-            "Keine .nav-item Elemente gefunden."
-        );
+        pages.forEach(page => {
 
-        return;
+            page.classList.remove("active-page");
+
+        });
+
+
+        const selectedPage =
+            document.getElementById("page-" + pageName);
+
+
+        if (selectedPage) {
+
+            selectedPage.classList.add("active-page");
+
+        }
+
+
+        navItems.forEach(item => {
+
+            item.classList.remove("active");
+
+
+            if (
+                item.dataset.page === pageName
+            ) {
+
+                item.classList.add("active");
+
+            }
+
+        });
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
     }
 
 
-    navigationButtons.forEach(function (button) {
+    navItems.forEach(item => {
 
-        button.addEventListener("click", function (event) {
+        item.addEventListener("click", () => {
 
-            event.preventDefault();
-
-            const target =
-                button.getAttribute("data-page");
+            const page =
+                item.dataset.page;
 
 
-            if (!target) {
-
-                console.warn(
-                    "Navigationspunkt besitzt kein data-page:",
-                    button
-                );
-
+            if (!page) {
                 return;
             }
 
 
-            showPage(target);
-
-
-            /*
-                Aktiven Menüpunkt markieren
-            */
-
-            navigationButtons.forEach(function (item) {
-
-                item.classList.remove("active");
-
-            });
-
-
-            button.classList.add("active");
+            openPage(page);
 
         });
 
     });
 
 
-    /*
-        Beim Start Übersicht anzeigen
-    */
+    /* =====================================================
+       ÖFFENTLICHE NAVIGATION
+       Damit Buttons aus der HTML-Datei ebenfalls
+       Seiten öffnen können.
+    ===================================================== */
 
-    const activeButton =
+    window.openPage = openPage;
+
+
+    window.goToOverview = function() {
+
+        openPage("overview");
+
+    };
+
+
+    window.goToPlay = function() {
+
+        openPage("play");
+
+    };
+
+
+    window.goToFriends = function() {
+
+        openPage("friends");
+
+    };
+
+
+    window.goToRanking = function() {
+
+        openPage("ranking");
+
+    };
+
+
+    window.goToMessages = function() {
+
+        openPage("messages");
+
+    };
+
+
+    window.goToSettings = function() {
+
+        openPage("settings");
+
+    };
+
+
+    window.goToShop = function() {
+
+        openPage("shop");
+
+    };
+
+
+    /* =====================================================
+       SCHNELL SPIELEN
+    ===================================================== */
+
+    window.startQuickGame = function() {
+
+        showMessage(
+            "Gegnersuche wird gestartet …"
+        );
+
+
+        /*
+         * Später wird hier deine echte
+         * Chess-/Online-Spiel-Logik verbunden.
+         *
+         * Beispiel:
+         *
+         * if (typeof quickJoin === "function") {
+         *     quickJoin();
+         * }
+         */
+
+    };
+
+
+    /* =====================================================
+       MIT FREUNDEN SPIELEN
+    ===================================================== */
+
+    window.playWithFriends = function() {
+
+        showMessage(
+            "Freunde-Bereich wird geöffnet …"
+        );
+
+        setTimeout(() => {
+
+            openPage("friends");
+
+        }, 250);
+
+    };
+
+
+    /* =====================================================
+       SPIEL BEITRETEN
+    ===================================================== */
+
+    window.joinGame = function() {
+
+        const input =
+            document.getElementById("room-code");
+
+
+        if (!input) {
+
+            showMessage(
+                "Raumcode-Feld wurde nicht gefunden."
+            );
+
+            return;
+
+        }
+
+
+        const code =
+            input.value.trim();
+
+
+        if (!code) {
+
+            input.focus();
+
+            input.classList.add("input-error");
+
+
+            setTimeout(() => {
+
+                input.classList.remove(
+                    "input-error"
+                );
+
+            }, 700);
+
+
+            showMessage(
+                "Bitte gib einen Raumcode ein."
+            );
+
+            return;
+
+        }
+
+
+        showMessage(
+            "Raum " + code +
+            " wird geöffnet …"
+        );
+
+
+        /*
+         * Später:
+         *
+         * if (typeof joinRoom === "function") {
+         *     joinRoom(code);
+         * }
+         */
+
+    };
+
+
+    /* =====================================================
+       ENTER IM RAUMCODE-FELD
+    ===================================================== */
+
+    const roomInput =
+        document.getElementById("room-code");
+
+
+    if (roomInput) {
+
+        roomInput.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "Enter") {
+
+                    joinGame();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       RAUM ERSTELLEN
+    ===================================================== */
+
+    window.createGameRoom = function() {
+
+        showMessage(
+            "Ein neuer Spielraum wird erstellt …"
+        );
+
+
+        /*
+         * Später:
+         *
+         * if (typeof createRoom === "function") {
+         *     createRoom();
+         * }
+         */
+
+    };
+
+
+    /* =====================================================
+       FREUNDE
+    ===================================================== */
+
+    window.addFriend = function() {
+
+        const name =
+            prompt(
+                "Spielername eingeben:"
+            );
+
+
+        if (!name) {
+            return;
+        }
+
+
+        showMessage(
+            "Freundschaftsanfrage an " +
+            name +
+            " vorbereitet."
+        );
+
+    };
+
+
+    /* =====================================================
+       NACHRICHTEN
+    ===================================================== */
+
+    window.openMessages = function() {
+
+        openPage("messages");
+
+    };
+
+
+    /* =====================================================
+       SHOP
+    ===================================================== */
+
+    window.buyShopItem = function(
+        itemName,
+        price
+    ) {
+
+        let coins =
+            parseInt(
+                localStorage.getItem(
+                    "kingsblitzCoins"
+                )
+            );
+
+
+        if (isNaN(coins)) {
+
+            coins = 100;
+
+        }
+
+
+        if (coins < price) {
+
+            showMessage(
+                "Du hast nicht genügend Coins."
+            );
+
+            return;
+
+        }
+
+
+        coins -= price;
+
+
+        localStorage.setItem(
+            "kingsblitzCoins",
+            coins
+        );
+
+
+        updateCoins();
+
+
+        showMessage(
+            itemName +
+            " wurde gekauft! 🎉"
+        );
+
+    };
+
+
+    /* =====================================================
+       COINS ANZEIGEN
+    ===================================================== */
+
+    function updateCoins() {
+
+        let coins =
+            parseInt(
+                localStorage.getItem(
+                    "kingsblitzCoins"
+                )
+            );
+
+
+        if (isNaN(coins)) {
+
+            coins = 100;
+
+            localStorage.setItem(
+                "kingsblitzCoins",
+                coins
+            );
+
+        }
+
+
+        const coinElements =
+            document.querySelectorAll(
+                "[data-coins]"
+            );
+
+
+        coinElements.forEach(element => {
+
+            element.textContent =
+                coins;
+
+        });
+
+    }
+
+
+    updateCoins();
+
+
+    /* =====================================================
+       SHOP ÖFFNEN
+    ===================================================== */
+
+    window.openShop = function() {
+
+        openPage("shop");
+
+    };
+
+
+    /* =====================================================
+       BELOHNUNGEN
+    ===================================================== */
+
+    window.openRewards = function() {
+
+        showMessage(
+            "Deine Belohnungen werden geöffnet …"
+        );
+
+    };
+
+
+    /* =====================================================
+       LETZTE PARTIE
+    ===================================================== */
+
+    window.openLastGame = function() {
+
+        showMessage(
+            "Die letzte Partie wird geöffnet …"
+        );
+
+    };
+
+
+    /* =====================================================
+       PROFIL
+    ===================================================== */
+
+    window.openProfile = function() {
+
+        showMessage(
+            "Profil wird geöffnet …"
+        );
+
+    };
+
+
+    /* =====================================================
+       LOGOUT / ACCOUNT
+    ===================================================== */
+
+    window.logout = function() {
+
+        const confirmed =
+            confirm(
+                "Möchtest du dich wirklich abmelden?"
+            );
+
+
+        if (!confirmed) {
+            return;
+        }
+
+
+        showMessage(
+            "Du wurdest abgemeldet."
+        );
+
+    };
+
+
+    /* =====================================================
+       INITIALER STATUS
+    ===================================================== */
+
+    const firstPage =
+        document.querySelector(
+            ".page.active-page"
+        );
+
+
+    if (!firstPage && pages.length > 0) {
+
+        pages[0].classList.add(
+            "active-page"
+        );
+
+    }
+
+
+    /*
+     * Falls noch kein Navigationspunkt
+     * aktiv ist, Übersicht aktivieren.
+     */
+
+    const activeNavigation =
         document.querySelector(
             ".nav-item.active"
         );
 
 
-    if (activeButton) {
+    if (!activeNavigation) {
 
-        const startPage =
-            activeButton.getAttribute("data-page");
-
-
-        if (startPage) {
-
-            showPage(startPage);
-
-        }
-
-    } else {
-
-        showPage("overview");
-
-    }
-
-}
+        const overview =
+            document.querySelector(
+                '.nav-item[data-page="overview"]'
+            );
 
 
-/* =========================================================
-   SEITE ANZEIGEN
-========================================================= */
+        if (overview) {
 
-function showPage(pageName) {
-
-    const pages =
-        document.querySelectorAll(".page");
-
-
-    let pageFound = false;
-
-
-    pages.forEach(function (page) {
-
-        const pageId =
-            page.getAttribute("data-page");
-
-
-        if (pageId === pageName) {
-
-            page.classList.add("active-page");
-
-            pageFound = true;
-
-        } else {
-
-            page.classList.remove("active-page");
+            overview.classList.add(
+                "active"
+            );
 
         }
 
-    });
-
-
-    /*
-        Falls die gewünschte Seite noch nicht existiert,
-        zeigen wir eine verständliche Meldung in der
-        Entwicklerkonsole.
-    */
-
-    if (!pageFound) {
-
-        console.warn(
-            "Seite nicht gefunden:",
-            pageName
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   HILFSFUNKTION:
-   NAVIGATION PROGRAMMATISCH ÖFFNEN
-========================================================= */
-
-function navigateTo(pageName) {
-
-    const button =
-        document.querySelector(
-            '.nav-item[data-page="' +
-            pageName +
-            '"]'
-        );
-
-
-    if (button) {
-
-        button.click();
-
-        return;
-
     }
 
 
-    showPage(pageName);
+    console.log(
+        "Königsblitz App erfolgreich geladen."
+    );
 
-}
-
-
-/* =========================================================
-   ÖFFENTLICH VERFÜGBARE FUNKTION
-========================================================= */
-
-window.Koenigsblitz = {
-
-    navigateTo: navigateTo,
-
-    showPage: showPage
-
-};
+});
