@@ -353,16 +353,56 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 
-    /* =====================================================
-       NACHRICHTEN
-    ===================================================== */
+    /* =========================================================
+   NACHRICHTEN
+========================================================= */
 
-    window.openMessages = function() {
+function openMessage(messageId) {
 
-        openPage("messages");
+    if (messageId === "koenigsblitz") {
 
-    };
+        showMessage(
+            "Königsblitz: Willkommen bei Königsblitz!"
+        );
 
+        return;
+    }
+
+    if (messageId === "chessmaster") {
+
+        showMessage(
+            "ChessMaster: Lust auf eine Partie?"
+        );
+
+        return;
+    }
+
+    if (messageId === "blitzking") {
+
+        showMessage(
+            "BlitzKing: Danke für die Partie!"
+        );
+
+        return;
+    }
+
+}
+
+
+function newMessage() {
+
+    showMessage(
+        "Neue Nachricht kommt als Nächstes."
+    );
+
+}
+
+
+window.openMessage =
+    openMessage;
+
+window.newMessage =
+    newMessage;
 
     /* =====================================================
        SHOP
