@@ -2819,3 +2819,374 @@ button:focus-visible {
     }
 
 }
+
+/* =========================================================
+   NACHRICHTEN – KÖNIGSBLITZ
+========================================================= */
+
+.messages-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   NACHRICHTENLISTE
+========================================================= */
+
+.messages-card {
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.messages-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.messages-card-header > div > span {
+    font-size: 10px;
+    letter-spacing: 1.4px;
+
+    opacity: 0.45;
+}
+
+.messages-card-header h3 {
+    margin: 5px 0 0;
+
+    font-size: 18px;
+}
+
+.message-total {
+    min-width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   EINZELNE NACHRICHT
+========================================================= */
+
+.message-item {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px 24px;
+
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    background: transparent;
+
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+.message-item:last-child {
+    border-bottom: none;
+}
+
+.message-item:hover {
+    background: rgba(255,255,255,0.045);
+}
+
+
+/* UNGELESENE NACHRICHT */
+
+.message-item.unread {
+    background: rgba(255,255,255,0.025);
+}
+
+.message-item.unread:hover {
+    background: rgba(255,255,255,0.055);
+}
+
+
+/* AVATAR */
+
+.message-avatar {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.message-avatar.official {
+    background: rgba(255,255,255,0.10);
+
+    font-size: 19px;
+}
+
+
+/* TEXT */
+
+.message-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.message-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.message-top strong {
+    font-size: 14px;
+}
+
+.message-top small {
+    flex-shrink: 0;
+
+    font-size: 11px;
+
+    opacity: 0.4;
+}
+
+.message-content p {
+    margin: 5px 0 0;
+
+    overflow: hidden;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    opacity: 0.55;
+}
+
+
+/* UNGELESEN-PUNKT */
+
+.message-dot {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    opacity: 0;
+}
+
+.message-item.unread .message-dot {
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   NEUE NACHRICHT – RECHTE KARTE
+========================================================= */
+
+.message-side-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 28px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.018)
+        );
+}
+
+.message-side-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 13px;
+
+    background: rgba(255,255,255,0.07);
+
+    font-size: 20px;
+}
+
+.message-side-card .eyebrow {
+    margin-bottom: 8px;
+}
+
+.message-side-card h3 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.message-side-card p {
+    margin: 0 0 24px;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    opacity: 0.55;
+}
+
+.message-side-card .primary-button {
+    width: 100%;
+}
+
+
+/* =========================================================
+   OFFIZIELLE NACHRICHTEN
+========================================================= */
+
+.official-message-banner {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 20px;
+    padding: 18px 20px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.official-banner-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(255,255,255,0.06);
+
+    font-size: 18px;
+}
+
+.official-message-banner span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 10px;
+    letter-spacing: 1.2px;
+
+    opacity: 0.45;
+}
+
+.official-message-banner strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 14px;
+}
+
+.official-message-banner p {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .messages-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .message-side-card {
+        order: -1;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .messages-card-header {
+        padding: 18px;
+    }
+
+    .message-item {
+        padding: 16px 18px;
+    }
+
+    .message-side-card {
+        padding: 22px;
+    }
+
+    .official-message-banner {
+        align-items: flex-start;
+    }
+
+}
