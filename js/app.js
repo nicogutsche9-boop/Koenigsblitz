@@ -632,3 +632,29 @@ window.newMessage =
     );
 
 });
+
+/* =========================================================
+   EINSTELLUNGEN
+========================================================= */
+
+function editProfile() {
+
+    showMessage(
+        "Profil bearbeiten kommt als Nächstes."
+    );
+
+}
+
+
+function toggleSetting(button) {
+
+    button.classList.toggle("active");
+
+}
+
+
+window.editProfile =
+    editProfile;
+
+window.toggleSetting =
+    toggleSetting;
