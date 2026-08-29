@@ -1169,54 +1169,245 @@
 
 </section>
             <!-- =================================================
-                 NACHRICHTEN
-            ================================================== -->
+     NACHRICHTEN – KÖNIGSBLITZ
+================================================= -->
 
-            <section
-                class="page"
-                data-page="messages"
-            >
+<section
+    class="page"
+    data-page="messages"
+>
+
+    <div class="page-intro">
+
+        <span class="eyebrow">
+            KOMMUNIKATION
+        </span>
+
+        <h2>
+            Nachrichten
+        </h2>
+
+        <p>
+            Neuigkeiten von Königsblitz und
+            Nachrichten von anderen Spielern.
+        </p>
+
+    </div>
 
 
-                <div class="page-intro">
+    <!-- =================================================
+         NACHRICHTEN-BEREICH
+    ================================================== -->
 
-                    <span class="eyebrow">
-                        KOMMUNIKATION
+    <div class="messages-layout">
+
+
+        <!-- NACHRICHTENLISTE -->
+
+        <div class="messages-card">
+
+            <div class="messages-card-header">
+
+                <div>
+
+                    <span>
+                        POSTEINGANG
                     </span>
 
-                    <h2>
-                        Nachrichten
-                    </h2>
-
-                    <p>
-                        Hier findest du deine
-                        Nachrichten und Spielanfragen.
-                    </p>
-
-                </div>
-
-
-
-                <div class="empty-card">
-
-                    <div class="empty-icon">
-                        ●
-                    </div>
-
                     <h3>
-                        Keine neuen Nachrichten
+                        Deine Nachrichten
                     </h3>
 
+                </div>
+
+                <span class="message-total">
+                    3
+                </span>
+
+            </div>
+
+
+            <!-- KÖNIGSBLITZ -->
+
+            <button
+                class="message-item unread"
+                type="button"
+                onclick="openMessage('koenigsblitz')"
+            >
+
+                <div class="message-avatar official">
+                    ♛
+                </div>
+
+                <div class="message-content">
+
+                    <div class="message-top">
+
+                        <strong>
+                            Königsblitz
+                        </strong>
+
+                        <small>
+                            Heute
+                        </small>
+
+                    </div>
+
                     <p>
-                        Du hast momentan keine
-                        ungelesenen Nachrichten.
+                        Willkommen bei Königsblitz!
                     </p>
 
                 </div>
 
+                <span class="message-dot"></span>
 
-            </section>
+            </button>
 
+
+            <!-- CHESSMASTER -->
+
+            <button
+                class="message-item"
+                type="button"
+                onclick="openMessage('chessmaster')"
+            >
+
+                <div class="message-avatar">
+                    C
+                </div>
+
+                <div class="message-content">
+
+                    <div class="message-top">
+
+                        <strong>
+                            ChessMaster
+                        </strong>
+
+                        <small>
+                            Gestern
+                        </small>
+
+                    </div>
+
+                    <p>
+                        Lust auf eine Partie?
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <!-- BLITZKING -->
+
+            <button
+                class="message-item"
+                type="button"
+                onclick="openMessage('blitzking')"
+            >
+
+                <div class="message-avatar">
+                    B
+                </div>
+
+                <div class="message-content">
+
+                    <div class="message-top">
+
+                        <strong>
+                            BlitzKing
+                        </strong>
+
+                        <small>
+                            25.08.
+                        </small>
+
+                    </div>
+
+                    <p>
+                        Danke für die Partie!
+                    </p>
+
+                </div>
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RECHTER INFOBEREICH
+        ================================================== -->
+
+        <div class="message-side-card">
+
+            <div class="message-side-icon">
+                ✉
+            </div>
+
+            <span class="eyebrow">
+                KOMMUNIZIEREN
+            </span>
+
+            <h3>
+                Schreib anderen Spielern
+            </h3>
+
+            <p>
+                Tausche dich mit deinen Freunden aus,
+                verabrede Partien oder sende eine
+                kurze Nachricht.
+            </p>
+
+            <button
+                class="primary-button"
+                type="button"
+                onclick="newMessage()"
+            >
+                + Neue Nachricht
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         OFFIZIELLE NACHRICHTEN
+    ================================================== -->
+
+    <div class="official-message-banner">
+
+        <div class="official-banner-icon">
+            ♛
+        </div>
+
+        <div>
+
+            <span>
+                KÖNIGSBLITZ
+            </span>
+
+            <strong>
+                Neuigkeiten & wichtige Informationen
+            </strong>
+
+            <p>
+                Hier informieren wir dich über Updates,
+                Events, neue Funktionen und besondere
+                Angebote.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
 
 
             <!-- =================================================
