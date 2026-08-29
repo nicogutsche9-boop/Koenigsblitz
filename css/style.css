@@ -2184,3 +2184,164 @@ button:focus-visible {
 
 
 }
+
+
+/* =========================================================
+   ÜBERSICHT – ZUSÄTZLICHE ELEMENTE
+========================================================= */
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+    margin-bottom: 34px;
+}
+
+.overview-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.018)
+        );
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.overview-stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.16);
+}
+
+.overview-stat-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.06);
+
+    font-size: 20px;
+}
+
+.overview-stat-card small {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    opacity: 0.55;
+}
+
+.overview-stat-card strong {
+    display: block;
+
+    font-size: 22px;
+}
+
+
+/* SHOP ÜBERSICHT */
+
+.overview-shop-heading {
+    margin-top: 10px;
+}
+
+
+/* ANGEBOT */
+
+.offer-information {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* TIPP */
+
+.overview-tip {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin-top: 24px;
+    padding: 18px 20px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.overview-tip > span {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.06);
+
+    font-size: 18px;
+}
+
+.overview-tip strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.overview-tip p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.6;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .overview-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .quick-play-card {
+        flex-direction: column;
+    }
+
+    .quick-play-chess {
+        display: none;
+    }
+
+    .offer-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
