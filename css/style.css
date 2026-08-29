@@ -3455,3 +3455,346 @@ button:focus-visible {
     }
 
 }
+
+/* =========================================================
+   GROßER SHOP – KÖNIGSBLITZ
+========================================================= */
+
+.shop-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.shop-coins {
+    min-width: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 14px 18px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.035);
+}
+
+.shop-coins span {
+    font-size: 18px;
+}
+
+.shop-coins strong {
+    font-size: 18px;
+}
+
+.shop-coins small {
+    font-size: 10px;
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   KATEGORIEN
+========================================================= */
+
+.shop-categories {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 25px;
+    margin-bottom: 22px;
+}
+
+.shop-category {
+    padding: 9px 15px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.025);
+
+    color: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.shop-category:hover {
+    background: rgba(255,255,255,0.07);
+}
+
+.shop-category.active {
+    background: rgba(255,255,255,0.11);
+}
+
+
+/* =========================================================
+   SHOP GRID
+========================================================= */
+
+.shop-grid-large {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   SHOP ITEM
+========================================================= */
+
+.shop-item-large {
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.018)
+        );
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.shop-item-large:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(255,255,255,0.15);
+}
+
+
+/* =========================================================
+   SHOP PREVIEW
+========================================================= */
+
+.shop-preview {
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.08),
+            transparent 65%
+        );
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+
+    font-size: 52px;
+}
+
+
+/* verschiedene Vorschauen */
+
+.king-frame {
+    font-size: 55px;
+}
+
+.royal-frame {
+    font-size: 52px;
+}
+
+.crown-frame {
+    font-size: 55px;
+}
+
+.night-board {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.09),
+            rgba(0,0,0,0.15)
+        );
+
+    font-size: 55px;
+}
+
+.royal-board {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.025)
+        );
+
+    font-size: 55px;
+}
+
+.classic-board {
+    font-size: 55px;
+}
+
+.blitz-pieces {
+    font-size: 55px;
+}
+
+.royal-pieces {
+    font-size: 55px;
+}
+
+.lightning-effect {
+    font-size: 48px;
+}
+
+.victory-effect {
+    font-size: 48px;
+}
+
+.fire-effect {
+    font-size: 48px;
+}
+
+
+/* =========================================================
+   SHOP TEXT
+========================================================= */
+
+.shop-item-content {
+    padding: 18px;
+}
+
+.shop-item-content > span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 9px;
+    letter-spacing: 1.3px;
+
+    opacity: 0.4;
+}
+
+.shop-item-content h3 {
+    margin: 0 0 7px;
+
+    font-size: 17px;
+}
+
+.shop-item-content p {
+    min-height: 38px;
+
+    margin: 0 0 17px;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   SHOP BUTTON / PREIS
+========================================================= */
+
+.shop-item-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.shop-item-bottom strong {
+    font-size: 14px;
+}
+
+.shop-item-bottom .primary-button {
+    padding: 9px 13px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SHOP FOOTER
+========================================================= */
+
+.shop-footer-note {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 20px;
+    padding: 17px 20px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.shop-footer-note > span {
+    font-size: 22px;
+}
+
+.shop-footer-note strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+}
+
+.shop-footer-note p {
+    margin: 0;
+
+    font-size: 11px;
+
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   SHOP RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .shop-grid-large {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .shop-intro {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .shop-coins {
+        width: 100%;
+    }
+
+    .shop-grid-large {
+        grid-template-columns: 1fr;
+    }
+
+}
