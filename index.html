@@ -12,7 +12,7 @@
 
     <meta
         name="description"
-        content="Königsblitz – Deine Schacharena."
+        content="Königsblitz – Deine moderne Schacharena."
     >
 
     <title>Königsblitz</title>
@@ -32,7 +32,7 @@
 
 
     <!-- =====================================================
-         LINKE NAVIGATION
+         LINKE SIDEBAR
     ====================================================== -->
 
     <aside class="sidebar">
@@ -61,136 +61,86 @@
         </div>
 
 
-
         <!-- NAVIGATION -->
 
         <nav class="navigation">
 
 
             <button
+                type="button"
                 class="nav-item active"
                 data-page="overview"
             >
-
-                <span class="nav-icon">
-                    ⌂
-                </span>
-
-                <span>
-                    Übersicht
-                </span>
-
+                <span class="nav-icon">⌂</span>
+                <span>Übersicht</span>
             </button>
 
 
-
             <button
+                type="button"
                 class="nav-item"
                 data-page="play"
             >
-
-                <span class="nav-icon">
-                    ♟
-                </span>
-
-                <span>
-                    Spielen
-                </span>
-
+                <span class="nav-icon">♟</span>
+                <span>Spielen</span>
             </button>
 
 
-
             <button
+                type="button"
                 class="nav-item"
                 data-page="friends"
             >
-
-                <span class="nav-icon">
-                    ♟♟
-                </span>
-
-                <span>
-                    Freunde
-                </span>
-
+                <span class="nav-icon">♟♟</span>
+                <span>Freunde</span>
             </button>
 
 
-
             <button
+                type="button"
                 class="nav-item"
                 data-page="ranking"
             >
-
-                <span class="nav-icon">
-                    ♛
-                </span>
-
-                <span>
-                    Ranking
-                </span>
-
+                <span class="nav-icon">♛</span>
+                <span>Ranking</span>
             </button>
 
 
-
             <button
+                type="button"
                 class="nav-item"
                 data-page="messages"
             >
-
-                <span class="nav-icon">
-                    ●
-                </span>
-
-                <span>
-                    Nachrichten
-                </span>
+                <span class="nav-icon">●</span>
+                <span>Nachrichten</span>
 
                 <b class="nav-badge">
                     0
                 </b>
-
             </button>
 
 
-
             <button
+                type="button"
                 class="nav-item"
                 data-page="settings"
             >
-
-                <span class="nav-icon">
-                    ⚙
-                </span>
-
-                <span>
-                    Einstellungen
-                </span>
-
+                <span class="nav-icon">⚙</span>
+                <span>Einstellungen</span>
             </button>
 
 
-
             <button
+                type="button"
                 class="nav-item"
                 data-page="shop"
             >
-
-                <span class="nav-icon">
-                    🛒
-                </span>
-
-                <span>
-                    Shop
-                </span>
-
+                <span class="nav-icon">🛒</span>
+                <span>Shop</span>
             </button>
 
 
         </nav>
-
 
 
         <!-- BENUTZER -->
@@ -216,6 +166,7 @@
         </div>
 
 
+        <!-- VERSION -->
 
         <div class="sidebar-version">
 
@@ -259,7 +210,6 @@
             </div>
 
 
-
             <div class="topbar-right">
 
 
@@ -271,20 +221,19 @@
                         🪙
                     </span>
 
-                    <strong>
+                    <strong id="coin-count">
                         100
                     </strong>
 
                 </div>
 
 
-
                 <!-- PROFIL -->
 
                 <button
-                    class="profile-button"
                     type="button"
-                    onclick="navigateTo('settings')"
+                    class="profile-button"
+                    data-page-button="settings"
                 >
 
                     <span class="profile-avatar">
@@ -306,11 +255,10 @@
 
 
         <!-- =================================================
-             SEITENBEREICH
+             ALLE SEITEN
         ================================================== -->
 
         <div class="pages">
-
 
 
             <!-- =================================================
@@ -343,7 +291,6 @@
                 </div>
 
 
-
                 <!-- SCHNELL SPIELEN -->
 
                 <div class="quick-play-card">
@@ -364,10 +311,11 @@
                             passenden Gegner.
                         </p>
 
+
                         <button
-                            class="primary-button"
                             type="button"
-                            onclick="startQuickGame()"
+                            class="primary-button"
+                            id="quick-play-button"
                         >
 
                             <span>
@@ -379,7 +327,6 @@
                         </button>
 
                     </div>
-
 
 
                     <div class="quick-play-chess">
@@ -407,10 +354,11 @@
 
                     </div>
 
+
                     <button
-                        class="text-button"
                         type="button"
-                        onclick="navigateTo('shop')"
+                        class="text-button"
+                        data-page-button="shop"
                     >
                         Zum Shop →
                     </button>
@@ -424,9 +372,11 @@
 
                     <article class="offer-card">
 
+
                         <div class="offer-icon">
                             ♛
                         </div>
+
 
                         <div>
 
@@ -445,9 +395,11 @@
 
                         </div>
 
+
                         <strong>
                             50 🪙
                         </strong>
+
 
                     </article>
 
@@ -455,9 +407,11 @@
 
                     <article class="offer-card">
 
+
                         <div class="offer-icon">
                             ♜
                         </div>
+
 
                         <div>
 
@@ -476,12 +430,13 @@
 
                         </div>
 
+
                         <strong>
                             75 🪙
                         </strong>
 
-                    </article>
 
+                    </article>
 
 
                 </div>
@@ -523,6 +478,8 @@
                 <div class="play-options">
 
 
+                    <!-- MIT FREUNDEN -->
+
                     <article class="option-card">
 
                         <div class="option-icon">
@@ -539,9 +496,9 @@
                         </p>
 
                         <button
-                            class="primary-button"
                             type="button"
-                            onclick="navigateTo('friends')"
+                            class="primary-button"
+                            data-page-button="friends"
                         >
                             Freunde auswählen
                         </button>
@@ -549,6 +506,8 @@
                     </article>
 
 
+
+                    <!-- SPIEL BEITRETEN -->
 
                     <article class="option-card">
 
@@ -565,6 +524,7 @@
                             und trete einer Partie bei.
                         </p>
 
+
                         <div class="join-row">
 
                             <input
@@ -572,12 +532,14 @@
                                 type="text"
                                 maxlength="12"
                                 placeholder="Raumcode"
+                                autocomplete="off"
                             >
 
+
                             <button
-                                class="primary-button"
                                 type="button"
-                                onclick="joinRoom()"
+                                class="primary-button"
+                                id="join-room-button"
                             >
                                 Beitreten
                             </button>
@@ -587,6 +549,8 @@
                     </article>
 
 
+
+                    <!-- RAUM ERSTELLEN -->
 
                     <article class="option-card">
 
@@ -604,9 +568,9 @@
                         </p>
 
                         <button
-                            class="secondary-button"
                             type="button"
-                            onclick="createRoom()"
+                            class="secondary-button"
+                            id="create-room-button"
                         >
                             Raum erstellen
                         </button>
@@ -666,9 +630,9 @@
                     </p>
 
                     <button
-                        class="primary-button"
                         type="button"
-                        onclick="addFriend()"
+                        class="primary-button"
+                        id="add-friend-button"
                     >
                         + Freund hinzufügen
                     </button>
@@ -811,7 +775,7 @@
                     </h2>
 
                     <p>
-                        Hier findest du später deine
+                        Hier findest du deine
                         Nachrichten und Spielanfragen.
                     </p>
 
@@ -887,10 +851,11 @@
 
                         </div>
 
+
                         <button
-                            class="secondary-button"
                             type="button"
-                            onclick="showMessage('Profil bearbeiten kommt später.')"
+                            class="secondary-button"
+                            id="edit-profile-button"
                         >
                             Bearbeiten
                         </button>
@@ -909,6 +874,27 @@
 
                             <span>
                                 1250
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>
+                                Coins
+                            </strong>
+
+                            <span>
+                                <span id="settings-coins">
+                                    100
+                                </span>
+                                🪙
                             </span>
 
                         </div>
@@ -953,6 +939,7 @@
 
                 <div class="page-intro shop-intro">
 
+
                     <div>
 
                         <span class="eyebrow">
@@ -978,7 +965,7 @@
                             🪙
                         </span>
 
-                        <strong>
+                        <strong id="shop-coins">
                             100
                         </strong>
 
@@ -988,12 +975,15 @@
 
                     </div>
 
+
                 </div>
 
 
 
                 <div class="shop-grid">
 
+
+                    <!-- SHOP ITEM 1 -->
 
                     <article class="shop-item">
 
@@ -1018,10 +1008,12 @@
                                 dein Profil.
                             </p>
 
+
                             <button
-                                class="primary-button"
                                 type="button"
-                                onclick="buyItem('König-Rahmen', 50)"
+                                class="primary-button shop-buy"
+                                data-item="König-Rahmen"
+                                data-price="50"
                             >
                                 50 🪙 kaufen
                             </button>
@@ -1032,6 +1024,8 @@
                     </article>
 
 
+
+                    <!-- SHOP ITEM 2 -->
 
                     <article class="shop-item">
 
@@ -1056,10 +1050,12 @@
                                 Look für deine Partien.
                             </p>
 
+
                             <button
-                                class="primary-button"
                                 type="button"
-                                onclick="buyItem('Nachtbrett', 75)"
+                                class="primary-button shop-buy"
+                                data-item="Nachtbrett"
+                                data-price="75"
                             >
                                 75 🪙 kaufen
                             </button>
@@ -1070,6 +1066,8 @@
                     </article>
 
 
+
+                    <!-- SHOP ITEM 3 -->
 
                     <article class="shop-item">
 
@@ -1082,7 +1080,7 @@
                         <div class="shop-item-content">
 
                             <span>
-                                FIGUR
+                                FIGUREN
                             </span>
 
                             <h3>
@@ -1094,10 +1092,12 @@
                                 für deine Partien.
                             </p>
 
+
                             <button
-                                class="primary-button"
                                 type="button"
-                                onclick="buyItem('Blitz-Set', 100)"
+                                class="primary-button shop-buy"
+                                data-item="Blitz-Set"
+                                data-price="100"
                             >
                                 100 🪙 kaufen
                             </button>
@@ -1143,17 +1143,32 @@
 
 
 <!-- =========================================================
-     JAVASCRIPT
+     TOAST / MELDUNG
 ========================================================= -->
 
-<script src="js/app.js"></script>
+<div
+    id="kb-toast"
+    aria-live="polite"
+></div>
 
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     
+     WICHTIG:
+     Diese Version enthält die komplette Navigation
+     direkt hier in der index.html.
+     
+     Dadurch brauchen wir für die reine Oberfläche
+     zunächst KEIN app.js.
+========================================================= -->
 
 <script>
 
 
 /* =========================================================
-   TITEL DER SEITEN
+   SEITENTITEL
 ========================================================= */
 
 const pageTitles = {
@@ -1177,162 +1192,154 @@ const pageTitles = {
 
 
 /* =========================================================
-   NAVIGATION ERGÄNZEN
+   NAVIGATION
 ========================================================= */
 
-const originalShowPage =
-    window.Koenigsblitz.showPage;
+function navigateTo(pageName) {
 
 
-window.Koenigsblitz.showPage =
-    function(pageName) {
+    /* Alle Seiten ausblenden */
 
-        originalShowPage(pageName);
-
-
-        const title =
-            pageTitles[pageName] ||
-            "Königsblitz";
+    const pages =
+        document.querySelectorAll(".page");
 
 
-        const titleElement =
-            document.getElementById("page-title");
+    pages.forEach(function(page) {
+
+        page.classList.remove("active-page");
+
+    });
 
 
-        if (titleElement) {
+    /* Gewünschte Seite anzeigen */
 
-            titleElement.textContent =
-                title;
-
-        }
-
-    };
-
-
-
-/* =========================================================
-   SCHNELL SPIELEN
-========================================================= */
-
-function startQuickGame() {
-
-    showMessage(
-        "Gegnersuche wird vorbereitet …"
-    );
-
-}
-
-
-
-/* =========================================================
-   RAUM ERSTELLEN
-========================================================= */
-
-function createRoom() {
-
-    showMessage(
-        "Raum wird erstellt …"
-    );
-
-}
-
-
-
-/* =========================================================
-   RAUM BEITRETEN
-========================================================= */
-
-function joinRoom() {
-
-    const input =
-        document.getElementById("room-code");
-
-
-    if (!input) {
-        return;
-    }
-
-
-    const code =
-        input.value.trim();
-
-
-    if (!code) {
-
-        input.focus();
-
-        showMessage(
-            "Bitte gib einen Raumcode ein."
+    const selectedPage =
+        document.querySelector(
+            '.page[data-page="' + pageName + '"]'
         );
 
-        return;
+
+    if (selectedPage) {
+
+        selectedPage.classList.add(
+            "active-page"
+        );
 
     }
 
 
-    showMessage(
-        "Raum " +
-        code +
-        " wird geöffnet …"
-    );
+    /* Navigation aktualisieren */
+
+    const navItems =
+        document.querySelectorAll(".nav-item");
+
+
+    navItems.forEach(function(item) {
+
+        item.classList.remove("active");
+
+    });
+
+
+    const activeNav =
+        document.querySelector(
+            '.nav-item[data-page="' + pageName + '"]'
+        );
+
+
+    if (activeNav) {
+
+        activeNav.classList.add("active");
+
+    }
+
+
+    /* Seitentitel ändern */
+
+    const title =
+        document.getElementById("page-title");
+
+
+    if (title) {
+
+        title.textContent =
+            pageTitles[pageName] || "Königsblitz";
+
+    }
+
+
+    /* Seite nach oben scrollen */
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 }
 
 
 
 /* =========================================================
-   FREUND HINZUFÜGEN
+   SIDEBAR NAVIGATION
 ========================================================= */
 
-function addFriend() {
+document
+    .querySelectorAll(".nav-item")
+    .forEach(function(button) {
 
-    showMessage(
-        "Freund hinzufügen kommt als Nächstes."
-    );
+        button.addEventListener(
+            "click",
+            function() {
 
-}
+                const page =
+                    this.dataset.page;
+
+                navigateTo(page);
+
+            }
+        );
+
+    });
 
 
 
 /* =========================================================
-   SHOP
+   INTERNE SEITEN-BUTTONS
 ========================================================= */
 
-function buyItem(itemName, price) {
+document
+    .querySelectorAll("[data-page-button]")
+    .forEach(function(button) {
 
-    showMessage(
-        itemName +
-        " für " +
-        price +
-        " Coins ausgewählt."
-    );
+        button.addEventListener(
+            "click",
+            function() {
 
-}
+                const page =
+                    this.dataset.pageButton;
+
+                navigateTo(page);
+
+            }
+        );
+
+    });
 
 
 
 /* =========================================================
-   NACHRICHT
+   TOAST MELDUNG
 ========================================================= */
 
 function showMessage(message) {
 
-    let toast =
+
+    const toast =
         document.getElementById("kb-toast");
 
 
     if (!toast) {
-
-        toast =
-            document.createElement("div");
-
-        toast.id =
-            "kb-toast";
-
-        document.body.appendChild(
-            toast
-        );
-
+        return;
     }
 
 
@@ -1340,9 +1347,7 @@ function showMessage(message) {
         message;
 
 
-    toast.classList.add(
-        "show"
-    );
+    toast.classList.add("show");
 
 
     clearTimeout(
@@ -1353,36 +1358,335 @@ function showMessage(message) {
     window.kbToastTimer =
         setTimeout(function() {
 
-            toast.classList.remove(
-                "show"
-            );
+            toast.classList.remove("show");
 
         }, 2200);
 
 }
 
 
+
 /* =========================================================
-   GLOBALE FUNKTIONEN
+   COINS
 ========================================================= */
 
-window.startQuickGame =
-    startQuickGame;
+let coins =
+    parseInt(
+        localStorage.getItem("koenigsblitzCoins")
+    );
 
-window.createRoom =
-    createRoom;
 
-window.joinRoom =
-    joinRoom;
+if (isNaN(coins)) {
 
-window.addFriend =
-    addFriend;
+    coins = 100;
 
-window.buyItem =
-    buyItem;
+    localStorage.setItem(
+        "koenigsblitzCoins",
+        coins
+    );
 
-window.showMessage =
-    showMessage;
+}
+
+
+
+/* COINS ANZEIGEN */
+
+function updateCoins() {
+
+
+    const coinElements =
+        document.querySelectorAll(
+            "#coin-count, #shop-coins, #settings-coins"
+        );
+
+
+    coinElements.forEach(function(element) {
+
+        element.textContent =
+            coins;
+
+    });
+
+}
+
+
+updateCoins();
+
+
+
+/* =========================================================
+   SCHNELL SPIELEN
+========================================================= */
+
+const quickPlayButton =
+    document.getElementById(
+        "quick-play-button"
+    );
+
+
+if (quickPlayButton) {
+
+    quickPlayButton.addEventListener(
+        "click",
+        function() {
+
+            showMessage(
+                "Gegnersuche wird vorbereitet …"
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   RAUM ERSTELLEN
+========================================================= */
+
+const createRoomButton =
+    document.getElementById(
+        "create-room-button"
+    );
+
+
+if (createRoomButton) {
+
+    createRoomButton.addEventListener(
+        "click",
+        function() {
+
+            const roomCode =
+                Math.random()
+                    .toString(36)
+                    .substring(2, 8)
+                    .toUpperCase();
+
+
+            showMessage(
+                "Raum erstellt: " +
+                roomCode
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   RAUM BEITRETEN
+========================================================= */
+
+const joinRoomButton =
+    document.getElementById(
+        "join-room-button"
+    );
+
+
+if (joinRoomButton) {
+
+    joinRoomButton.addEventListener(
+        "click",
+        function() {
+
+
+            const input =
+                document.getElementById(
+                    "room-code"
+                );
+
+
+            if (!input) {
+                return;
+            }
+
+
+            const code =
+                input.value.trim();
+
+
+            if (!code) {
+
+                showMessage(
+                    "Bitte gib einen Raumcode ein."
+                );
+
+                input.focus();
+
+                return;
+
+            }
+
+
+            showMessage(
+                "Raum " +
+                code +
+                " wird geöffnet …"
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   FREUND HINZUFÜGEN
+========================================================= */
+
+const addFriendButton =
+    document.getElementById(
+        "add-friend-button"
+    );
+
+
+if (addFriendButton) {
+
+    addFriendButton.addEventListener(
+        "click",
+        function() {
+
+            showMessage(
+                "Freund hinzufügen kommt als Nächstes."
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   PROFIL BEARBEITEN
+========================================================= */
+
+const editProfileButton =
+    document.getElementById(
+        "edit-profile-button"
+    );
+
+
+if (editProfileButton) {
+
+    editProfileButton.addEventListener(
+        "click",
+        function() {
+
+            showMessage(
+                "Profil bearbeiten kommt als Nächstes."
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   SHOP
+========================================================= */
+
+document
+    .querySelectorAll(".shop-buy")
+    .forEach(function(button) {
+
+
+        button.addEventListener(
+            "click",
+            function() {
+
+
+                const item =
+                    this.dataset.item;
+
+
+                const price =
+                    parseInt(
+                        this.dataset.price
+                    );
+
+
+                if (coins < price) {
+
+                    showMessage(
+                        "Nicht genügend Coins."
+                    );
+
+                    return;
+
+                }
+
+
+                coins -= price;
+
+
+                localStorage.setItem(
+                    "koenigsblitzCoins",
+                    coins
+                );
+
+
+                updateCoins();
+
+
+                showMessage(
+                    item +
+                    " wurde gekauft! 🎉"
+                );
+
+
+            }
+        );
+
+
+    });
+
+
+
+/* =========================================================
+   ENTER-TASTE BEIM RAUMCODE
+========================================================= */
+
+const roomInput =
+    document.getElementById(
+        "room-code"
+    );
+
+
+if (roomInput) {
+
+    roomInput.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                if (joinRoomButton) {
+
+                    joinRoomButton.click();
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   STARTSEITE
+========================================================= */
+
+navigateTo("overview");
 
 
 </script>
