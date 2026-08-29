@@ -559,144 +559,189 @@
 </section>
 
         
-            <!-- =================================================
-                 SPIELEN
-            ================================================== -->
+     <!-- =================================================
+     SPIELEN – KÖNIGSBLITZ
+================================================= -->
 
-            <section
-                class="page"
-                data-page="play"
+<section
+    class="page"
+    data-page="play"
+>
+
+    <div class="page-intro">
+
+        <span class="eyebrow">
+            SPIELMODI
+        </span>
+
+        <h2>
+            Wie möchtest du spielen?
+        </h2>
+
+        <p>
+            Wähle eine Möglichkeit für deine nächste
+            Partie.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         SPIELOPTIONEN
+    ================================================== -->
+
+    <div class="play-options">
+
+
+        <!-- MIT FREUNDEN -->
+
+        <article class="option-card">
+
+            <div class="option-icon">
+                ♟♟
+            </div>
+
+            <span class="card-eyebrow">
+                GEMEINSAM
+            </span>
+
+            <h3>
+                Mit Freunden spielen
+            </h3>
+
+            <p>
+                Spiele gegen jemanden aus deiner
+                Freundesliste.
+            </p>
+
+            <button
+                class="primary-button"
+                type="button"
+                onclick="navigateTo('friends')"
             >
+                Freunde auswählen
+            </button>
 
-
-                <div class="page-intro">
-
-                    <span class="eyebrow">
-                        SPIELMODI
-                    </span>
-
-                    <h2>
-                        Wie möchtest du spielen?
-                    </h2>
-
-                    <p>
-                        Wähle eine Möglichkeit,
-                        um deine nächste Partie zu starten.
-                    </p>
-
-                </div>
+        </article>
 
 
 
-                <div class="play-options">
+        <!-- SPIEL BEITRETEN -->
+
+        <article class="option-card">
+
+            <div class="option-icon">
+                ↪
+            </div>
+
+            <span class="card-eyebrow">
+                RAUMCODE
+            </span>
+
+            <h3>
+                Spiel beitreten
+            </h3>
+
+            <p>
+                Du hast einen Raumcode?
+                Gib ihn hier ein.
+            </p>
 
 
-                    <!-- MIT FREUNDEN -->
+            <div class="join-row">
 
-                    <article class="option-card">
+                <input
+                    id="room-code"
+                    type="text"
+                    maxlength="12"
+                    placeholder="Raumcode"
+                    autocomplete="off"
+                >
 
-                        <div class="option-icon">
-                            ♟♟
-                        </div>
+                <button
+                    class="primary-button"
+                    type="button"
+                    onclick="joinRoom()"
+                >
+                    Beitreten
+                </button>
 
-                        <h3>
-                            Mit Freunden
-                        </h3>
+            </div>
 
-                        <p>
-                            Spiele gegen jemanden
-                            aus deiner Freundesliste.
-                        </p>
-
-                        <button
-                            type="button"
-                            class="primary-button"
-                            data-page-button="friends"
-                        >
-                            Freunde auswählen
-                        </button>
-
-                    </article>
-
-
-
-                    <!-- SPIEL BEITRETEN -->
-
-                    <article class="option-card">
-
-                        <div class="option-icon">
-                            ↪
-                        </div>
-
-                        <h3>
-                            Spiel beitreten
-                        </h3>
-
-                        <p>
-                            Gib einen Raumcode ein
-                            und trete einer Partie bei.
-                        </p>
-
-
-                        <div class="join-row">
-
-                            <input
-                                id="room-code"
-                                type="text"
-                                maxlength="12"
-                                placeholder="Raumcode"
-                                autocomplete="off"
-                            >
-
-
-                            <button
-                                type="button"
-                                class="primary-button"
-                                id="join-room-button"
-                            >
-                                Beitreten
-                            </button>
-
-                        </div>
-
-                    </article>
+        </article>
 
 
 
-                    <!-- RAUM ERSTELLEN -->
+        <!-- RAUM ERSTELLEN -->
 
-                    <article class="option-card">
+        <article class="option-card">
 
-                        <div class="option-icon">
-                            +
-                        </div>
+            <div class="option-icon">
+                +
+            </div>
 
-                        <h3>
-                            Raum erstellen
-                        </h3>
+            <span class="card-eyebrow">
+                DEIN RAUM
+            </span>
 
-                        <p>
-                            Erstelle deinen eigenen Raum
-                            und lade andere Spieler ein.
-                        </p>
+            <h3>
+                Raum erstellen
+            </h3>
 
-                        <button
-                            type="button"
-                            class="secondary-button"
-                            id="create-room-button"
-                        >
-                            Raum erstellen
-                        </button>
+            <p>
+                Erstelle einen eigenen Raum und
+                lade andere Spieler ein.
+            </p>
 
-                    </article>
+            <button
+                class="secondary-button"
+                type="button"
+                onclick="createRoom()"
+            >
+                Raum erstellen
+            </button>
 
-
-                </div>
-
-
-            </section>
+        </article>
 
 
+    </div>
+
+
+    <!-- =================================================
+         HINWEIS
+    ================================================== -->
+
+    <div class="overview-tip play-tip">
+
+        <span>
+            ⚡
+        </span>
+
+        <div>
+
+            <strong>
+                Schnell spielen?
+            </strong>
+
+            <p>
+                Wenn du einfach direkt loslegen möchtest,
+                nutze „Schnell spielen“ auf der Übersicht.
+            </p>
+
+        </div>
+
+        <button
+            class="text-button"
+            type="button"
+            onclick="navigateTo('overview')"
+        >
+            Zur Übersicht →
+        </button>
+
+    </div>
+
+
+</section>
 
             <!-- =================================================
                  FREUNDE
