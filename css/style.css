@@ -2599,3 +2599,223 @@ button:focus-visible {
     }
 
 }
+
+/* =========================================================
+   RANKING – KÖNIGSBLITZ
+========================================================= */
+
+.ranking-highlight {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 30px;
+    margin-bottom: 22px;
+
+    padding: 20px 24px;
+
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.06),
+            rgba(255,255,255,0.02)
+        );
+}
+
+.ranking-position {
+    font-size: 24px;
+    font-weight: 700;
+
+    min-width: 55px;
+}
+
+.ranking-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    flex: 1;
+}
+
+.ranking-player strong {
+    display: block;
+    font-size: 16px;
+}
+
+.ranking-player span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    opacity: 0.5;
+}
+
+.ranking-avatar {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.ranking-avatar.small {
+    width: 36px;
+    height: 36px;
+
+    font-size: 13px;
+}
+
+.ranking-rating {
+    text-align: right;
+}
+
+.ranking-rating small {
+    display: block;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    opacity: 0.45;
+}
+
+.ranking-rating strong {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 20px;
+}
+
+
+.ranking-card {
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.ranking-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.ranking-card-header span:first-child {
+    font-size: 10px;
+    letter-spacing: 1.3px;
+
+    opacity: 0.5;
+}
+
+.ranking-card-header h3 {
+    margin: 5px 0 0;
+
+    font-size: 18px;
+}
+
+.ranking-season {
+    padding: 7px 11px;
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.05);
+
+    font-size: 11px;
+    opacity: 0.6;
+}
+
+
+.ranking-row {
+    display: grid;
+
+    grid-template-columns: 55px 1fr auto;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 64px;
+
+    padding: 0 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.ranking-row:last-child {
+    border-bottom: none;
+}
+
+.ranking-number {
+    font-weight: 600;
+    opacity: 0.55;
+}
+
+.ranking-number.first,
+.ranking-number.second,
+.ranking-number.third {
+    font-size: 18px;
+    opacity: 1;
+}
+
+.ranking-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ranking-name strong {
+    font-size: 14px;
+}
+
+.ranking-points {
+    font-size: 15px;
+}
+
+.ranking-row.current-player {
+    background: rgba(255,255,255,0.055);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .ranking-highlight {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .ranking-position {
+        min-width: 40px;
+        font-size: 19px;
+    }
+
+    .ranking-row {
+        grid-template-columns: 35px 1fr auto;
+        padding: 0 16px;
+    }
+
+    .ranking-card-header {
+        padding: 18px 16px;
+    }
+
+}
