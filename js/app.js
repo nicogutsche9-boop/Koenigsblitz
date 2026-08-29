@@ -658,3 +658,53 @@ window.editProfile =
 
 window.toggleSetting =
     toggleSetting;
+
+/* =========================================================
+   SHOP KATEGORIEN
+========================================================= */
+
+function filterShop(category, button) {
+
+    const items =
+        document.querySelectorAll(".shop-item-large");
+
+    const buttons =
+        document.querySelectorAll(".shop-category");
+
+
+    buttons.forEach(function(item) {
+
+        item.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+
+    items.forEach(function(item) {
+
+        const itemCategory =
+            item.dataset.category;
+
+
+        if (
+            category === "all" ||
+            itemCategory === category
+        ) {
+
+            item.style.display = "";
+
+        } else {
+
+            item.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+window.filterShop =
+    filterShop;
