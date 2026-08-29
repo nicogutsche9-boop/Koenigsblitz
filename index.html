@@ -1823,192 +1823,650 @@
 </section>
 
             <!-- =================================================
-                 SHOP
-            ================================================== -->
+     SHOP – KÖNIGSBLITZ
+================================================= -->
 
-            <section
-                class="page"
-                data-page="shop"
-            >
+<section
+    class="page"
+    data-page="shop"
+>
 
+    <div class="page-intro shop-intro">
 
-                <div class="page-intro shop-intro">
+        <div>
 
+            <span class="eyebrow">
+                KÖNIGSBLITZ SHOP
+            </span>
 
-                    <div>
+            <h2>
+                Dein persönlicher Shop
+            </h2>
 
-                        <span class="eyebrow">
-                            KÖNIGSBLITZ SHOP
-                        </span>
+            <p>
+                Entdecke neue Designs, Figuren und
+                besondere Extras für dein Profil.
+            </p>
 
-                        <h2>
-                            Dein persönlicher Shop
-                        </h2>
-
-                        <p>
-                            Schalte neue Designs und
-                            kosmetische Extras frei.
-                        </p>
-
-                    </div>
+        </div>
 
 
+        <div class="shop-coins">
 
-                    <div class="shop-coins">
+            <span>
+                🪙
+            </span>
 
-                        <span>
-                            🪙
-                        </span>
+            <strong id="shop-coins">
+                100
+            </strong>
 
-                        <strong id="shop-coins">
-                            100
-                        </strong>
+            <small>
+                Coins
+            </small>
 
-                        <small>
-                            Coins
-                        </small>
+        </div>
 
-                    </div>
+    </div>
 
+
+    <!-- =================================================
+         SHOP KATEGORIEN
+    ================================================== -->
+
+    <div class="shop-categories">
+
+        <button
+            class="shop-category active"
+            type="button"
+            onclick="filterShop('all', this)"
+        >
+            Alle
+        </button>
+
+        <button
+            class="shop-category"
+            type="button"
+            onclick="filterShop('profile', this)"
+        >
+            👑 Profil
+        </button>
+
+        <button
+            class="shop-category"
+            type="button"
+            onclick="filterShop('board', this)"
+        >
+            ♟ Schachbrett
+        </button>
+
+        <button
+            class="shop-category"
+            type="button"
+            onclick="filterShop('pieces', this)"
+        >
+            ♞ Figuren
+        </button>
+
+        <button
+            class="shop-category"
+            type="button"
+            onclick="filterShop('effects', this)"
+        >
+            ⚡ Effekte
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         SHOP ARTIKEL
+    ================================================== -->
+
+    <div class="shop-grid-large">
+
+
+        <!-- =================================================
+             PROFIL
+        ================================================== -->
+
+        <article
+            class="shop-item-large"
+            data-category="profile"
+        >
+
+            <div class="shop-preview king-frame">
+                ♛
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    PROFIL
+                </span>
+
+                <h3>
+                    König-Rahmen
+                </h3>
+
+                <p>
+                    Ein edler Rahmen für dein Profilbild.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        50 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('König-Rahmen', 50)"
+                    >
+                        Kaufen
+                    </button>
 
                 </div>
 
+            </div>
 
-
-                <div class="shop-grid">
-
-
-                    <!-- SHOP ITEM 1 -->
-
-                    <article class="shop-item">
-
-
-                        <div class="shop-preview">
-                            ♛
-                        </div>
-
-
-                        <div class="shop-item-content">
-
-                            <span>
-                                PROFIL
-                            </span>
-
-                            <h3>
-                                König-Rahmen
-                            </h3>
-
-                            <p>
-                                Ein edler Rahmen für
-                                dein Profil.
-                            </p>
-
-
-                            <button
-                                type="button"
-                                class="primary-button shop-buy"
-                                data-item="König-Rahmen"
-                                data-price="50"
-                            >
-                                50 🪙 kaufen
-                            </button>
-
-                        </div>
-
-
-                    </article>
+        </article>
 
 
 
-                    <!-- SHOP ITEM 2 -->
+        <article
+            class="shop-item-large"
+            data-category="profile"
+        >
 
-                    <article class="shop-item">
+            <div class="shop-preview royal-frame">
+                ♚
+            </div>
 
+            <div class="shop-item-content">
 
-                        <div class="shop-preview">
-                            ♜
-                        </div>
+                <span>
+                    PROFIL
+                </span>
 
+                <h3>
+                    Royal-Abzeichen
+                </h3>
 
-                        <div class="shop-item-content">
+                <p>
+                    Zeige anderen Spielern deinen Status.
+                </p>
 
-                            <span>
-                                SCHACHBRETT
-                            </span>
+                <div class="shop-item-bottom">
 
-                            <h3>
-                                Nachtbrett
-                            </h3>
+                    <strong>
+                        80 🪙
+                    </strong>
 
-                            <p>
-                                Ein moderner dunkler
-                                Look für deine Partien.
-                            </p>
-
-
-                            <button
-                                type="button"
-                                class="primary-button shop-buy"
-                                data-item="Nachtbrett"
-                                data-price="75"
-                            >
-                                75 🪙 kaufen
-                            </button>
-
-                        </div>
-
-
-                    </article>
-
-
-
-                    <!-- SHOP ITEM 3 -->
-
-                    <article class="shop-item">
-
-
-                        <div class="shop-preview">
-                            ♞
-                        </div>
-
-
-                        <div class="shop-item-content">
-
-                            <span>
-                                FIGUREN
-                            </span>
-
-                            <h3>
-                                Blitz-Set
-                            </h3>
-
-                            <p>
-                                Ein spezielles Figurenset
-                                für deine Partien.
-                            </p>
-
-
-                            <button
-                                type="button"
-                                class="primary-button shop-buy"
-                                data-item="Blitz-Set"
-                                data-price="100"
-                            >
-                                100 🪙 kaufen
-                            </button>
-
-                        </div>
-
-
-                    </article>
-
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Royal-Abzeichen', 80)"
+                    >
+                        Kaufen
+                    </button>
 
                 </div>
 
+            </div>
 
-            </section>
+        </article>
 
 
+
+        <article
+            class="shop-item-large"
+            data-category="profile"
+        >
+
+            <div class="shop-preview crown-frame">
+                ♕
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    PROFIL
+                </span>
+
+                <h3>
+                    Blitz-Krone
+                </h3>
+
+                <p>
+                    Eine besondere Krone für dein Profil.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        120 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Blitz-Krone', 120)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             SCHACHBRETTER
+        ================================================== -->
+
+        <article
+            class="shop-item-large"
+            data-category="board"
+        >
+
+            <div class="shop-preview night-board">
+                ♜
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    SCHACHBRETT
+                </span>
+
+                <h3>
+                    Nachtbrett
+                </h3>
+
+                <p>
+                    Ein moderner dunkler Look für deine Partien.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        75 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Nachtbrett', 75)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article
+            class="shop-item-large"
+            data-category="board"
+        >
+
+            <div class="shop-preview royal-board">
+                ♞
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    SCHACHBRETT
+                </span>
+
+                <h3>
+                    Royal Board
+                </h3>
+
+                <p>
+                    Ein elegantes Brett für besondere Partien.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        100 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Royal Board', 100)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article
+            class="shop-item-large"
+            data-category="board"
+        >
+
+            <div class="shop-preview classic-board">
+                ♟
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    SCHACHBRETT
+                </span>
+
+                <h3>
+                    Klassik
+                </h3>
+
+                <p>
+                    Ein zeitloses Brett im klassischen Stil.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        60 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Klassik-Brett', 60)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             FIGUREN
+        ================================================== -->
+
+        <article
+            class="shop-item-large"
+            data-category="pieces"
+        >
+
+            <div class="shop-preview blitz-pieces">
+                ♞
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    FIGUREN
+                </span>
+
+                <h3>
+                    Blitz-Set
+                </h3>
+
+                <p>
+                    Ein modernes Figurenset für deine Partien.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        100 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Blitz-Set', 100)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article
+            class="shop-item-large"
+            data-category="pieces"
+        >
+
+            <div class="shop-preview royal-pieces">
+                ♛
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    FIGUREN
+                </span>
+
+                <h3>
+                    Royal-Set
+                </h3>
+
+                <p>
+                    Ein elegantes Figurenset für dein Schachbrett.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        140 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Royal-Set', 140)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             EFFEKTE
+        ================================================== -->
+
+        <article
+            class="shop-item-large"
+            data-category="effects"
+        >
+
+            <div class="shop-preview lightning-effect">
+                ⚡
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    EFFEKT
+                </span>
+
+                <h3>
+                    Blitz-Zug
+                </h3>
+
+                <p>
+                    Verleihe deinen Zügen einen besonderen Effekt.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        90 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Blitz-Zug', 90)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article
+            class="shop-item-large"
+            data-category="effects"
+        >
+
+            <div class="shop-preview victory-effect">
+                ✨
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    EFFEKT
+                </span>
+
+                <h3>
+                    Siegesglanz
+                </h3>
+
+                <p>
+                    Ein besonderer Effekt nach einem Sieg.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        150 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Siegesglanz', 150)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article
+            class="shop-item-large"
+            data-category="effects"
+        >
+
+            <div class="shop-preview fire-effect">
+                ♨
+            </div>
+
+            <div class="shop-item-content">
+
+                <span>
+                    EFFEKT
+                </span>
+
+                <h3>
+                    Feuerzug
+                </h3>
+
+                <p>
+                    Ein seltener Effekt für besonders starke Züge.
+                </p>
+
+                <div class="shop-item-bottom">
+
+                    <strong>
+                        200 🪙
+                    </strong>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        onclick="buyItem('Feuerzug', 200)"
+                    >
+                        Kaufen
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    <!-- =================================================
+         SHOP HINWEIS
+    ================================================== -->
+
+    <div class="shop-footer-note">
+
+        <span>
+            🪙
+        </span>
+
+        <div>
+
+            <strong>
+                Coins verdienen
+            </strong>
+
+            <p>
+                Spiele Partien und schließe später
+                Herausforderungen ab, um weitere
+                Coins zu verdienen.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
         </div>
 
 
