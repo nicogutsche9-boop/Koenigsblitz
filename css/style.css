@@ -3798,3 +3798,11 @@ button:focus-visible {
     }
 
 }
+/* =========================================================
+   GEKAUFTER SHOP-ARTIKEL
+========================================================= */
+
+.shop-item-large .primary-button.purchased {
+    opacity: 0.55;
+    cursor: default;
+}
