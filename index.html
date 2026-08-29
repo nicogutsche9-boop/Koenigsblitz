@@ -1,1 +1,1159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Königsblitz – Schach. Strategie. Du."
+    >
+
+    <title>Königsblitz</title>
+
+    <!-- Unser Design -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ==================================================
+         LINKe NAVIGATION
+    =================================================== -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="brand">
+
+            <div class="brand-crown">
+                ♛
+            </div>
+
+            <div class="brand-name">
+                KÖNIGSBLITZ
+            </div>
+
+            <div class="brand-subtitle">
+                SCHACH. STRATEGIE. DU.
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+            <button
+                class="nav-item active"
+                data-page="overview"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Übersicht</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="play"
+            >
+                <span class="nav-icon">♞</span>
+                <span>Spielen</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="friends"
+            >
+                <span class="nav-icon">♟</span>
+                <span>Freunde</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="ranking"
+            >
+                <span class="nav-icon">♜</span>
+                <span>Ranking</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="messages"
+            >
+                <span class="nav-icon">✉</span>
+                <span>Nachrichten</span>
+
+                <span class="notification-badge">
+                    0
+                </span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="settings"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Einstellungen</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="shop"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Shop</span>
+            </button>
+
+        </nav>
+
+
+        <!-- MÜNZEN -->
+
+        <div class="sidebar-coins">
+
+            <div class="coin-icon">
+                🪙
+            </div>
+
+            <div class="coin-information">
+
+                <span>
+                    Münzen
+                </span>
+
+                <strong>
+                    1.250
+                </strong>
+
+            </div>
+
+            <button
+                class="coin-add"
+                type="button"
+            >
+                +
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         HAUPTBEREICH
+    =================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOPBAR
+        =================================================== -->
+
+        <header class="topbar">
+
+            <div class="welcome">
+
+                <h1>
+                    Hallo
+                    <span>Nico!</span>
+                    👋
+                </h1>
+
+                <p>
+                    Bereit für deinen nächsten Zug?
+                </p>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-rank">
+
+                    <div class="user-crown">
+                        ♛
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Nico
+                        </strong>
+
+                        <span>
+                            🟫 Bronze
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="top-coins">
+
+                    <span>
+                        🪙
+                    </span>
+
+                    <strong>
+                        1.250
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================================================
+             SEITEN / VIEWS
+        =================================================== -->
+
+        <div class="page-container">
+
+
+            <!-- ==================================================
+                 ÜBERSICHT
+            =================================================== -->
+
+            <section
+                id="page-overview"
+                class="page active-page"
+            >
+
+                <div class="dashboard-grid">
+
+
+                    <!-- ==============================
+                         MITTLERER BEREICH
+                    =============================== -->
+
+                    <div class="dashboard-main">
+
+
+                        <!-- SCHNELL SPIELEN -->
+
+                        <section class="quick-play-card">
+
+                            <div class="quick-play-content">
+
+                                <span class="section-label">
+                                    SCHNELL SPIELEN
+                                </span>
+
+                                <h2>
+                                    Starte eine
+                                    <span>
+                                        schnelle Partie
+                                    </span>
+                                </h2>
+
+                                <p>
+                                    Finde jetzt einen Gegner
+                                    und teste deine Strategie.
+                                </p>
+
+                                <button
+                                    class="primary-button"
+                                    id="quick-play-button"
+                                >
+                                    <span>⚡</span>
+                                    JETZT SPIELEN
+                                </button>
+
+                            </div>
+
+
+                            <div class="quick-play-visual">
+
+                                <div class="chess-piece">
+                                    ♚
+                                </div>
+
+                                <div class="chess-piece-back">
+                                    ♟
+                                </div>
+
+                                <div class="chess-piece-back second">
+                                    ♟
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- SHOP HIGHLIGHTS -->
+
+                        <section class="shop-highlights">
+
+                            <div class="section-heading">
+
+                                <h2>
+                                    Shop Highlights
+                                </h2>
+
+                                <button
+                                    class="text-button"
+                                    data-page-target="shop"
+                                >
+                                    Zum Shop →
+                                </button>
+
+                            </div>
+
+
+                            <div class="shop-preview-grid">
+
+
+                                <article class="shop-preview-item">
+
+                                    <div class="shop-preview-image purple-preview">
+                                        ♟
+                                    </div>
+
+                                    <div class="shop-preview-info">
+
+                                        <span class="shop-tag new">
+                                            NEU
+                                        </span>
+
+                                        <h3>
+                                            Mysteriöse Figur
+                                        </h3>
+
+                                        <strong>
+                                            🪙 750
+                                        </strong>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="shop-preview-item">
+
+                                    <div class="shop-preview-image blue-preview">
+                                        ♛
+                                    </div>
+
+                                    <div class="shop-preview-info">
+
+                                        <span class="shop-tag discount">
+                                            -20%
+                                        </span>
+
+                                        <h3>
+                                            Königsbrett – Nacht
+                                        </h3>
+
+                                        <strong>
+                                            🪙 600
+                                        </strong>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="shop-preview-item">
+
+                                    <div class="shop-preview-image green-preview">
+                                        ♜
+                                    </div>
+
+                                    <div class="shop-preview-info">
+
+                                        <span class="shop-tag offer">
+                                            ANGEBOT
+                                        </span>
+
+                                        <h3>
+                                            Turm der Macht
+                                        </h3>
+
+                                        <strong>
+                                            🪙 500
+                                        </strong>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+                        </section>
+
+                    </div>
+
+
+
+                    <!-- ==============================
+                         RECHTE SEITENLEISTE
+                    =============================== -->
+
+                    <aside class="dashboard-right">
+
+
+                        <!-- PROFIL -->
+
+                        <section class="dashboard-card profile-card">
+
+                            <div class="card-heading">
+                                Dein Profil
+                            </div>
+
+
+                            <div class="profile-user">
+
+                                <div class="profile-avatar">
+                                    ♛
+                                </div>
+
+                                <div class="profile-user-info">
+
+                                    <h3>
+                                        Nico
+                                    </h3>
+
+                                    <span class="online-status">
+                                        <i></i>
+                                        Online
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="profile-stats">
+
+                                <div>
+                                    <strong>
+                                        1250
+                                    </strong>
+
+                                    <span>
+                                        Rating
+                                    </span>
+                                </div>
+
+
+                                <div>
+                                    <strong>
+                                        56%
+                                    </strong>
+
+                                    <span>
+                                        Gewinnrate
+                                    </span>
+                                </div>
+
+
+                                <div>
+                                    <strong>
+                                        28
+                                    </strong>
+
+                                    <span>
+                                        Gespielte
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                class="secondary-button"
+                                id="profile-button"
+                            >
+                                PROFIL ANSEHEN
+                            </button>
+
+                        </section>
+
+
+
+                        <!-- TÄGLICHE HERAUSFORDERUNG -->
+
+                        <section class="dashboard-card challenge-card">
+
+                            <div class="card-heading">
+
+                                <span>
+                                    🎯
+                                </span>
+
+                                Tägliche Herausforderung
+
+                            </div>
+
+
+                            <h3>
+                                Gewinne 3 Partien
+                            </h3>
+
+
+                            <div class="progress-row">
+
+                                <div class="progress-bar">
+
+                                    <span
+                                        style="width: 66%;"
+                                    ></span>
+
+                                </div>
+
+                                <span>
+                                    2 / 3
+                                </span>
+
+                            </div>
+
+
+                            <div class="reward-row">
+
+                                <span>
+                                    Belohnung:
+                                </span>
+
+                                <strong>
+                                    +100 🪙
+                                </strong>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- LETZTE PARTIE -->
+
+                        <section class="dashboard-card last-game-card">
+
+                            <div class="card-heading">
+
+                                <span>
+                                    ⚔
+                                </span>
+
+                                Letzte Partie
+
+                            </div>
+
+
+                            <div class="last-game-result">
+
+                                <strong>
+                                    Sieg
+                                </strong>
+
+                                <span>
+                                    vs. ChessMaster
+                                </span>
+
+                                <small>
+                                    Rating +12
+                                </small>
+
+                            </div>
+
+
+                            <button
+                                class="secondary-button"
+                                id="last-game-button"
+                            >
+                                PARTIE ANSEHEN
+                            </button>
+
+                        </section>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 SPIELEN
+            =================================================== -->
+
+            <section
+                id="page-play"
+                class="page"
+            >
+
+                <div class="page-title">
+
+                    <span>
+                        SPIELEN
+                    </span>
+
+                    <h2>
+                        Wie möchtest du spielen?
+                    </h2>
+
+                    <p>
+                        Wähle eine Spielart aus.
+                    </p>
+
+                </div>
+
+
+                <div class="option-grid">
+
+
+                    <article class="option-card friends-option">
+
+                        <div class="option-icon">
+                            ♟♟
+                        </div>
+
+                        <h3>
+                            Mit Freunden spielen
+                        </h3>
+
+                        <p>
+                            Fordere einen Freund zu
+                            einer Partie heraus.
+                        </p>
+
+                        <button class="option-button">
+                            AUSWÄHLEN →
+                        </button>
+
+                    </article>
+
+
+
+                    <article class="option-card join-option">
+
+                        <div class="option-icon">
+                            ↪
+                        </div>
+
+                        <h3>
+                            Spiel beitreten
+                        </h3>
+
+                        <p>
+                            Tritt einem bestehenden
+                            Raum mit Code bei.
+                        </p>
+
+                        <input
+                            type="text"
+                            placeholder="Raumcode"
+                            maxlength="12"
+                        >
+
+                        <button class="option-button">
+                            BEITRETEN →
+                        </button>
+
+                    </article>
+
+
+
+                    <article class="option-card create-option">
+
+                        <div class="option-icon">
+                            +
+                        </div>
+
+                        <h3>
+                            Raum erstellen
+                        </h3>
+
+                        <p>
+                            Erstelle deinen eigenen
+                            Raum und lade andere ein.
+                        </p>
+
+                        <button class="option-button">
+                            RAUM ERSTELLEN →
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 FREUNDE
+            =================================================== -->
+
+            <section
+                id="page-friends"
+                class="page"
+            >
+
+                <div class="page-title">
+
+                    <span>
+                        SOZIAL
+                    </span>
+
+                    <h2>
+                        Deine Freunde
+                    </h2>
+
+                    <p>
+                        Spiele gemeinsam mit anderen Spielern.
+                    </p>
+
+                </div>
+
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        ♟
+                    </div>
+
+                    <h3>
+                        Noch keine Freunde
+                    </h3>
+
+                    <p>
+                        Füge Spieler hinzu und fordere
+                        sie zu einer Partie heraus.
+                    </p>
+
+                    <button class="primary-button">
+                        + FREUND HINZUFÜGEN
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 RANKING
+            =================================================== -->
+
+            <section
+                id="page-ranking"
+                class="page"
+            >
+
+                <div class="page-title">
+
+                    <span>
+                        WETTBEWERB
+                    </span>
+
+                    <h2>
+                        Ranking
+                    </h2>
+
+                    <p>
+                        Vergleiche dich mit anderen Spielern.
+                    </p>
+
+                </div>
+
+
+                <div class="ranking-placeholder">
+
+                    <div class="ranking-number">
+                        #1
+                    </div>
+
+                    <h3>
+                        Königsblitz Ranking
+                    </h3>
+
+                    <p>
+                        Die Rangliste wird hier angezeigt.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 NACHRICHTEN
+            =================================================== -->
+
+            <section
+                id="page-messages"
+                class="page"
+            >
+
+                <div class="page-title">
+
+                    <span>
+                        KOMMUNIKATION
+                    </span>
+
+                    <h2>
+                        Nachrichten
+                    </h2>
+
+                    <p>
+                        Deine Nachrichten und Spielanfragen.
+                    </p>
+
+                </div>
+
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        ✉
+                    </div>
+
+                    <h3>
+                        Keine neuen Nachrichten
+                    </h3>
+
+                    <p>
+                        Hier erscheinen später deine
+                        Nachrichten und Anfragen.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 EINSTELLUNGEN
+            =================================================== -->
+
+            <section
+                id="page-settings"
+                class="page"
+            >
+
+                <div class="page-title">
+
+                    <span>
+                        KONTO
+                    </span>
+
+                    <h2>
+                        Einstellungen
+                    </h2>
+
+                    <p>
+                        Passe Königsblitz an deine Wünsche an.
+                    </p>
+
+                </div>
+
+
+                <div class="settings-list">
+
+                    <div class="settings-item">
+
+                        <div>
+                            <strong>
+                                Profil
+                            </strong>
+
+                            <span>
+                                Name und Profilinformationen
+                            </span>
+                        </div>
+
+                        <button>
+                            →
+                        </button>
+
+                    </div>
+
+
+                    <div class="settings-item">
+
+                        <div>
+                            <strong>
+                                Darstellung
+                            </strong>
+
+                            <span>
+                                Aussehen und Oberfläche
+                            </span>
+                        </div>
+
+                        <button>
+                            →
+                        </button>
+
+                    </div>
+
+
+                    <div class="settings-item">
+
+                        <div>
+                            <strong>
+                                Benachrichtigungen
+                            </strong>
+
+                            <span>
+                                Nachrichten und Hinweise
+                            </span>
+                        </div>
+
+                        <button>
+                            →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 SHOP
+            =================================================== -->
+
+            <section
+                id="page-shop"
+                class="page"
+            >
+
+                <div class="page-title shop-page-title">
+
+                    <div>
+
+                        <span>
+                            KÖNIGSBLITZ SHOP
+                        </span>
+
+                        <h2>
+                            Dein Spiel. Dein Stil.
+                        </h2>
+
+                        <p>
+                            Schalte neue Designs,
+                            Figuren und Extras frei.
+                        </p>
+
+                    </div>
+
+
+                    <div class="shop-balance">
+
+                        <span>
+                            🪙
+                        </span>
+
+                        <strong>
+                            1.250
+                        </strong>
+
+                        <small>
+                            Münzen
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="shop-category">
+
+                    <h3>
+                        Figuren
+                    </h3>
+
+                    <div class="full-shop-grid">
+
+
+                        <article class="shop-card">
+
+                            <div class="shop-card-image purple-preview">
+                                ♟
+                            </div>
+
+                            <div class="shop-card-content">
+
+                                <span class="shop-tag new">
+                                    NEU
+                                </span>
+
+                                <h3>
+                                    Mysteriöse Figur
+                                </h3>
+
+                                <p>
+                                    Ein geheimnisvoller Look
+                                    für deine Partien.
+                                </p>
+
+                                <div class="shop-price">
+                                    🪙 750
+                                </div>
+
+                                <button>
+                                    KAUFEN
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <article class="shop-card">
+
+                            <div class="shop-card-image blue-preview">
+                                ♛
+                            </div>
+
+                            <div class="shop-card-content">
+
+                                <span class="shop-tag discount">
+                                    -20%
+                                </span>
+
+                                <h3>
+                                    Königsbrett – Nacht
+                                </h3>
+
+                                <p>
+                                    Dunkles Design für
+                                    dein Schachbrett.
+                                </p>
+
+                                <div class="shop-price">
+                                    🪙 600
+                                </div>
+
+                                <button>
+                                    KAUFEN
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <article class="shop-card">
+
+                            <div class="shop-card-image green-preview">
+                                ♜
+                            </div>
+
+                            <div class="shop-card-content">
+
+                                <span class="shop-tag offer">
+                                    ANGEBOT
+                                </span>
+
+                                <h3>
+                                    Turm der Macht
+                                </h3>
+
+                                <p>
+                                    Ein besonderer Look
+                                    für deinen Turm.
+                                </p>
+
+                                <div class="shop-price">
+                                    🪙 500
+                                </div>
+
+                                <button>
+                                    KAUFEN
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <article class="shop-card">
+
+                            <div class="shop-card-image gold-preview">
+                                ♚
+                            </div>
+
+                            <div class="shop-card-content">
+
+                                <h3>
+                                    Goldener König
+                                </h3>
+
+                                <p>
+                                    Verleihe deinem Spiel
+                                    einen königlichen Stil.
+                                </p>
+
+                                <div class="shop-price">
+                                    🪙 900
+                                </div>
+
+                                <button>
+                                    KAUFEN
+                                </button>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+     
+     Vorerst nur für die Navigation.
+     Die eigentliche Technik kommt später.
+================================================== -->
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
