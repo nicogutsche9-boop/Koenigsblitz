@@ -264,185 +264,183 @@
             <!-- =================================================
                  ÜBERSICHT
             ================================================== -->
+<!-- =================================================
+     ÜBERSICHT – KÖNIGSBLITZ
+================================================= -->
 
-            <section
-                class="page active-page"
-                data-page="overview"
+<section
+    class="page active-page"
+    data-page="overview"
+>
+
+
+    <!-- WILLKOMMEN -->
+
+    <div class="welcome-block">
+
+        <span class="eyebrow">
+            WILLKOMMEN ZURÜCK
+        </span>
+
+        <h2>
+            Bereit für deinen
+            <span>nächsten Zug?</span>
+        </h2>
+
+        <p>
+            Starte direkt eine Partie oder
+            entdecke die aktuellen Angebote.
+        </p>
+
+    </div>
+
+
+
+    <!-- SCHNELL SPIELEN -->
+
+    <div class="quick-play-card">
+
+        <div class="quick-play-content">
+
+            <span class="card-eyebrow">
+                SCHNELL & DIREKT
+            </span>
+
+            <h3>
+                Schnell spielen
+            </h3>
+
+            <p>
+                Finde automatisch einen passenden
+                Gegner und starte sofort deine Partie.
+            </p>
+
+            <button
+                class="primary-button"
+                type="button"
+                onclick="startQuickGame()"
             >
 
+                <span>
+                    ⚡
+                </span>
 
-                <div class="welcome-block">
+                Schnell spielen
 
-                    <span class="eyebrow">
-                        WILLKOMMEN ZURÜCK
-                    </span>
+            </button>
 
-                    <h2>
-                        Bereit für deinen
-                        <span>nächsten Zug?</span>
-                    </h2>
+        </div>
 
-                    <p>
-                        Spiele eine schnelle Partie
-                        oder entdecke die aktuellen
-                        Angebote im Shop.
-                    </p>
 
-                </div>
+        <div class="quick-play-chess">
+            ♞
+        </div>
 
+    </div>
 
-                <!-- SCHNELL SPIELEN -->
 
-                <div class="quick-play-card">
 
+    <!-- SHOP -->
 
-                    <div class="quick-play-content">
+    <div class="section-heading">
 
-                        <span class="card-eyebrow">
-                            SCHNELL & DIREKT
-                        </span>
+        <div>
 
-                        <h3>
-                            Schnell spielen
-                        </h3>
+            <span>
+                SHOP
+            </span>
 
-                        <p>
-                            Finde automatisch einen
-                            passenden Gegner.
-                        </p>
+            <h3>
+                Aktuell im Angebot
+            </h3>
 
+        </div>
 
-                        <button
-                            type="button"
-                            class="primary-button"
-                            id="quick-play-button"
-                        >
 
-                            <span>
-                                ⚡
-                            </span>
+        <button
+            class="text-button"
+            type="button"
+            onclick="navigateTo('shop')"
+        >
+            Alle Angebote →
+        </button>
 
-                            Schnell spielen
+    </div>
 
-                        </button>
 
-                    </div>
 
+    <div class="offer-grid">
 
-                    <div class="quick-play-chess">
-                        ♞
-                    </div>
 
+        <!-- ANGEBOT 1 -->
 
-                </div>
+        <article class="offer-card">
 
+            <div class="offer-icon">
+                ♛
+            </div>
 
+            <div>
 
-                <!-- SHOP ANGEBOT -->
+                <span class="offer-label">
+                    PROFIL
+                </span>
 
-                <div class="section-heading">
+                <h4>
+                    König-Rahmen
+                </h4>
 
-                    <div>
+                <p>
+                    Ein besonderer Rahmen
+                    für dein Profil.
+                </p>
 
-                        <span>
-                            SHOP
-                        </span>
+            </div>
 
-                        <h3>
-                            Aktuell im Angebot
-                        </h3>
+            <strong>
+                50 🪙
+            </strong>
 
-                    </div>
+        </article>
 
 
-                    <button
-                        type="button"
-                        class="text-button"
-                        data-page-button="shop"
-                    >
-                        Zum Shop →
-                    </button>
 
-                </div>
+        <!-- ANGEBOT 2 -->
 
+        <article class="offer-card">
 
+            <div class="offer-icon">
+                ♜
+            </div>
 
-                <div class="offer-grid">
+            <div>
 
+                <span class="offer-label">
+                    SCHACHBRETT
+                </span>
 
-                    <article class="offer-card">
+                <h4>
+                    Nachtbrett
+                </h4>
 
+                <p>
+                    Ein moderner dunkler Look
+                    für deine Partien.
+                </p>
 
-                        <div class="offer-icon">
-                            ♛
-                        </div>
+            </div>
 
+            <strong>
+                75 🪙
+            </strong>
 
-                        <div>
+        </article>
 
-                            <span class="offer-label">
-                                PROFIL
-                            </span>
 
-                            <h4>
-                                König-Rahmen
-                            </h4>
+    </div>
 
-                            <p>
-                                Ein besonderer Rahmen
-                                für dein Profil.
-                            </p>
 
-                        </div>
-
-
-                        <strong>
-                            50 🪙
-                        </strong>
-
-
-                    </article>
-
-
-
-                    <article class="offer-card">
-
-
-                        <div class="offer-icon">
-                            ♜
-                        </div>
-
-
-                        <div>
-
-                            <span class="offer-label">
-                                SCHACHBRETT
-                            </span>
-
-                            <h4>
-                                Nachtbrett
-                            </h4>
-
-                            <p>
-                                Ein dunkler Look für
-                                deine Partien.
-                            </p>
-
-                        </div>
-
-
-                        <strong>
-                            75 🪙
-                        </strong>
-
-
-                    </article>
-
-
-                </div>
-
-
-            </section>
+</section>
 
 
 
