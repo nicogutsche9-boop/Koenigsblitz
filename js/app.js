@@ -1,7 +1,7 @@
 /* =========================================================
    KÖNIGSBLITZ
    APP.JS
-   Navigation + Übersicht + Spielen
+   Navigation + Übersicht + Spielen + Shop
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,12 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const navItems = document.querySelectorAll(".nav-item");
     const pages = document.querySelectorAll(".page");
-
     const toast = document.getElementById("kb-toast");
 
 
     /* =====================================================
-       HILFSFUNKTION – MELDUNG
+       MELDUNGEN
     ===================================================== */
 
     window.showMessage = function(message) {
@@ -28,15 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         toast.textContent = message;
-
         toast.classList.add("show");
 
         clearTimeout(window.kbToastTimer);
 
         window.kbToastTimer = setTimeout(() => {
-
             toast.classList.remove("show");
-
         }, 2200);
 
     };
@@ -49,20 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
     function openPage(pageName) {
 
         pages.forEach(page => {
-
             page.classList.remove("active-page");
-
         });
 
 
         const selectedPage =
-            document.getElementById("page-" + pageName);
+            document.querySelector(
+                '.page[data-page="' + pageName + '"]'
+            );
 
 
         if (selectedPage) {
-
             selectedPage.classList.add("active-page");
-
         }
 
 
@@ -70,13 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             item.classList.remove("active");
 
-
-            if (
-                item.dataset.page === pageName
-            ) {
-
+            if (item.dataset.page === pageName) {
                 item.classList.add("active");
-
             }
 
         });
@@ -94,14 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         item.addEventListener("click", () => {
 
-            const page =
-                item.dataset.page;
-
+            const page = item.dataset.page;
 
             if (!page) {
                 return;
             }
-
 
             openPage(page);
 
@@ -112,59 +98,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
        ÖFFENTLICHE NAVIGATION
-       Damit Buttons aus der HTML-Datei ebenfalls
-       Seiten öffnen können.
     ===================================================== */
 
     window.openPage = openPage;
 
+    window.navigateTo = openPage;
+
 
     window.goToOverview = function() {
-
         openPage("overview");
-
     };
 
 
     window.goToPlay = function() {
-
         openPage("play");
-
     };
 
 
     window.goToFriends = function() {
-
         openPage("friends");
-
     };
 
 
     window.goToRanking = function() {
-
         openPage("ranking");
-
     };
 
 
     window.goToMessages = function() {
-
         openPage("messages");
-
     };
 
 
     window.goToSettings = function() {
-
         openPage("settings");
-
     };
 
 
     window.goToShop = function() {
-
         openPage("shop");
-
     };
 
 
@@ -178,18 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "Gegnersuche wird gestartet …"
         );
 
-
-        /*
-         * Später wird hier deine echte
-         * Chess-/Online-Spiel-Logik verbunden.
-         *
-         * Beispiel:
-         *
-         * if (typeof quickJoin === "function") {
-         *     quickJoin();
-         * }
-         */
-
     };
 
 
@@ -199,15 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.playWithFriends = function() {
 
-        showMessage(
-            "Freunde-Bereich wird geöffnet …"
-        );
-
-        setTimeout(() => {
-
-            openPage("friends");
-
-        }, 250);
+        openPage("friends");
 
     };
 
@@ -229,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             return;
-
         }
 
 
@@ -258,7 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             return;
-
         }
 
 
@@ -267,20 +217,11 @@ document.addEventListener("DOMContentLoaded", () => {
             " wird geöffnet …"
         );
 
-
-        /*
-         * Später:
-         *
-         * if (typeof joinRoom === "function") {
-         *     joinRoom(code);
-         * }
-         */
-
     };
 
 
     /* =====================================================
-       ENTER IM RAUMCODE-FELD
+       ENTER IM RAUMCODE
     ===================================================== */
 
     const roomInput =
@@ -294,9 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
             event => {
 
                 if (event.key === "Enter") {
-
                     joinGame();
-
                 }
 
             }
@@ -314,15 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showMessage(
             "Ein neuer Spielraum wird erstellt …"
         );
-
-
-        /*
-         * Später:
-         *
-         * if (typeof createRoom === "function") {
-         *     createRoom();
-         * }
-         */
 
     };
 
@@ -353,123 +283,86 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 
-    /* =========================================================
-   NACHRICHTEN
-========================================================= */
-
-function openMessage(messageId) {
-
-    if (messageId === "koenigsblitz") {
-
-        showMessage(
-            "Königsblitz: Willkommen bei Königsblitz!"
-        );
-
-        return;
-    }
-
-    if (messageId === "chessmaster") {
-
-        showMessage(
-            "ChessMaster: Lust auf eine Partie?"
-        );
-
-        return;
-    }
-
-    if (messageId === "blitzking") {
-
-        showMessage(
-            "BlitzKing: Danke für die Partie!"
-        );
-
-        return;
-    }
-
-}
-
-
-function newMessage() {
-
-    showMessage(
-        "Neue Nachricht kommt als Nächstes."
-    );
-
-}
-
-
-window.openMessage =
-    openMessage;
-
-window.newMessage =
-    newMessage;
-
     /* =====================================================
-       SHOP
+       NACHRICHTEN
     ===================================================== */
 
-    window.buyShopItem = function(
-        itemName,
-        price
-    ) {
+    function openMessage(messageId) {
 
-        let coins =
-            parseInt(
-                localStorage.getItem(
-                    "kingsblitzCoins"
-                )
-            );
-
-
-        if (isNaN(coins)) {
-
-            coins = 100;
-
-        }
-
-
-        if (coins < price) {
+        if (messageId === "koenigsblitz") {
 
             showMessage(
-                "Du hast nicht genügend Coins."
+                "Königsblitz: Willkommen bei Königsblitz!"
             );
 
             return;
-
         }
 
 
-        coins -= price;
+        if (messageId === "chessmaster") {
+
+            showMessage(
+                "ChessMaster: Lust auf eine Partie?"
+            );
+
+            return;
+        }
 
 
-        localStorage.setItem(
-            "kingsblitzCoins",
-            coins
-        );
+        if (messageId === "blitzking") {
+
+            showMessage(
+                "BlitzKing: Danke für die Partie!"
+            );
+
+            return;
+        }
+
+    }
 
 
-        updateCoins();
-
+    function newMessage() {
 
         showMessage(
-            itemName +
-            " wurde gekauft! 🎉"
+            "Neue Nachricht kommt als Nächstes."
         );
 
-    };
+    }
+
+
+    window.openMessage =
+        openMessage;
+
+    window.newMessage =
+        newMessage;
 
 
     /* =====================================================
-       COINS ANZEIGEN
+       =====================================================
+       COIN-SYSTEM
+       =====================================================
+    ====================================================== */
+
+    const COIN_STORAGE_KEY =
+        "kingsblitzCoins";
+
+
+    const PURCHASE_STORAGE_KEY =
+        "kingsblitzPurchasedItems";
+
+
+    /* =====================================================
+       COINS LADEN
     ===================================================== */
 
-    function updateCoins() {
+    function getCoins() {
 
         let coins =
             parseInt(
                 localStorage.getItem(
-                    "kingsblitzCoins"
-                )
+                    COIN_STORAGE_KEY
+                ),
+                10
             );
 
 
@@ -478,16 +371,55 @@ window.newMessage =
             coins = 100;
 
             localStorage.setItem(
-                "kingsblitzCoins",
-                coins
+                COIN_STORAGE_KEY,
+                String(coins)
             );
 
         }
 
 
+        return coins;
+
+    }
+
+
+    /* =====================================================
+       COINS SPEICHERN
+    ===================================================== */
+
+    function saveCoins(coins) {
+
+        localStorage.setItem(
+            COIN_STORAGE_KEY,
+            String(coins)
+        );
+
+    }
+
+
+    /* =====================================================
+       COIN-ANZEIGE AKTUALISIEREN
+    ===================================================== */
+
+    function updateCoins() {
+
+        const coins =
+            getCoins();
+
+
+        /*
+         * Unterstützt sowohl:
+         *
+         * data-coins="true"
+         *
+         * als auch
+         *
+         * .coin-display strong
+         */
+
         const coinElements =
             document.querySelectorAll(
-                "[data-coins]"
+                "[data-coins], .coin-display strong, .shop-coins strong"
             );
 
 
@@ -501,7 +433,327 @@ window.newMessage =
     }
 
 
-    updateCoins();
+    /* =====================================================
+       COINS ÖFFENTLICH ZUGÄNGLICH
+    ===================================================== */
+
+    window.getCoins = function() {
+
+        return getCoins();
+
+    };
+
+
+    /* =====================================================
+       COINS HINZUFÜGEN
+       Wird später für Belohnungen / Siege verwendet.
+    ===================================================== */
+
+    window.addCoins = function(amount) {
+
+        amount =
+            Number(amount);
+
+
+        if (
+            isNaN(amount) ||
+            amount <= 0
+        ) {
+            return;
+        }
+
+
+        let coins =
+            getCoins();
+
+
+        coins += amount;
+
+
+        saveCoins(coins);
+
+        updateCoins();
+
+
+        showMessage(
+            "+" + amount +
+            " 🪙 Coins erhalten!"
+        );
+
+    };
+
+
+    /* =====================================================
+       GEKAUFTE ARTIKEL LADEN
+    ===================================================== */
+
+    function getPurchasedItems() {
+
+        try {
+
+            const saved =
+                localStorage.getItem(
+                    PURCHASE_STORAGE_KEY
+                );
+
+
+            if (!saved) {
+                return [];
+            }
+
+
+            const items =
+                JSON.parse(saved);
+
+
+            if (!Array.isArray(items)) {
+                return [];
+            }
+
+
+            return items;
+
+        } catch (error) {
+
+            console.error(
+                "Fehler beim Laden der gekauften Artikel:",
+                error
+            );
+
+
+            return [];
+
+        }
+
+    }
+
+
+    /* =====================================================
+       GEKAUFTE ARTIKEL SPEICHERN
+    ===================================================== */
+
+    function savePurchasedItems(items) {
+
+        localStorage.setItem(
+            PURCHASE_STORAGE_KEY,
+            JSON.stringify(items)
+        );
+
+    }
+
+
+    /* =====================================================
+       PRÜFEN OB ARTIKEL GEKAUFT
+    ===================================================== */
+
+    function hasPurchased(itemName) {
+
+        const items =
+            getPurchasedItems();
+
+
+        return items.includes(
+            itemName
+        );
+
+    }
+
+
+    /* =====================================================
+       SHOP-ARTIKEL KAUFEN
+    ===================================================== */
+
+    window.buyShopItem = function(
+        itemName,
+        price
+    ) {
+
+        price =
+            Number(price);
+
+
+        if (
+            !itemName ||
+            isNaN(price) ||
+            price <= 0
+        ) {
+
+            showMessage(
+                "Dieser Artikel ist momentan nicht verfügbar."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Prüfen, ob bereits gekauft
+         */
+
+        if (hasPurchased(itemName)) {
+
+            showMessage(
+                "Du besitzt diesen Artikel bereits."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Aktuellen Kontostand holen
+         */
+
+        let coins =
+            getCoins();
+
+
+        /*
+         * Zu wenig Coins
+         */
+
+        if (coins < price) {
+
+            showMessage(
+                "Du hast nicht genügend Coins. 🪙"
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Preis abziehen
+         */
+
+        coins -= price;
+
+
+        /*
+         * Neuen Kontostand speichern
+         */
+
+        saveCoins(coins);
+
+
+        /*
+         * Artikel speichern
+         */
+
+        const purchasedItems =
+            getPurchasedItems();
+
+
+        purchasedItems.push(
+            itemName
+        );
+
+
+        savePurchasedItems(
+            purchasedItems
+        );
+
+
+        /*
+         * Anzeigen aktualisieren
+         */
+
+        updateCoins();
+
+        updateShopButtons();
+
+
+        /*
+         * Erfolg
+         */
+
+        showMessage(
+            "✓ " +
+            itemName +
+            " wurde gekauft!"
+        );
+
+    };
+
+
+    /* =====================================================
+       SHOP-BUTTONS AKTUALISIEREN
+    ===================================================== */
+
+    function updateShopButtons() {
+
+        const buttons =
+            document.querySelectorAll(
+                ".shop-item-large button"
+            );
+
+
+        buttons.forEach(button => {
+
+            const item =
+                button.closest(
+                    ".shop-item-large"
+                );
+
+
+            if (!item) {
+                return;
+            }
+
+
+            const itemName =
+                item.dataset.item;
+
+
+            const price =
+                Number(
+                    item.dataset.price
+                );
+
+
+            if (!itemName || isNaN(price)) {
+                return;
+            }
+
+
+            if (hasPurchased(itemName)) {
+
+                button.textContent =
+                    "✓ Besitzt du";
+
+
+                button.disabled =
+                    true;
+
+
+                button.classList.add(
+                    "purchased"
+                );
+
+
+            } else {
+
+                button.textContent =
+                    price +
+                    " 🪙 kaufen";
+
+
+                button.disabled =
+                    false;
+
+
+                button.classList.remove(
+                    "purchased"
+                );
+
+            }
+
+        });
+
+    }
 
 
     /* =====================================================
@@ -511,6 +763,10 @@ window.newMessage =
     window.openShop = function() {
 
         openPage("shop");
+
+        updateCoins();
+
+        updateShopButtons();
 
     };
 
@@ -555,7 +811,7 @@ window.newMessage =
 
 
     /* =====================================================
-       LOGOUT / ACCOUNT
+       LOGOUT
     ===================================================== */
 
     window.logout = function() {
@@ -579,7 +835,7 @@ window.newMessage =
 
 
     /* =====================================================
-       INITIALER STATUS
+       ERSTE SEITE
     ===================================================== */
 
     const firstPage =
@@ -597,10 +853,9 @@ window.newMessage =
     }
 
 
-    /*
-     * Falls noch kein Navigationspunkt
-     * aktiv ist, Übersicht aktivieren.
-     */
+    /* =====================================================
+       ÜBERSICHT AKTIVIEREN
+    ===================================================== */
 
     const activeNavigation =
         document.querySelector(
@@ -627,11 +882,21 @@ window.newMessage =
     }
 
 
+    /* =====================================================
+       COINS INITIALISIEREN
+    ===================================================== */
+
+    updateCoins();
+
+    updateShopButtons();
+
+
     console.log(
         "Königsblitz App erfolgreich geladen."
     );
 
 });
+
 
 /* =========================================================
    EINSTELLUNGEN
@@ -648,7 +913,13 @@ function editProfile() {
 
 function toggleSetting(button) {
 
-    button.classList.toggle("active");
+    if (!button) {
+        return;
+    }
+
+    button.classList.toggle(
+        "active"
+    );
 
 }
 
@@ -659,27 +930,41 @@ window.editProfile =
 window.toggleSetting =
     toggleSetting;
 
+
 /* =========================================================
-   SHOP KATEGORIEN
+   SHOP-KATEGORIEN
 ========================================================= */
 
 function filterShop(category, button) {
 
     const items =
-        document.querySelectorAll(".shop-item-large");
+        document.querySelectorAll(
+            ".shop-item-large"
+        );
+
 
     const buttons =
-        document.querySelectorAll(".shop-category");
+        document.querySelectorAll(
+            ".shop-category"
+        );
 
 
     buttons.forEach(function(item) {
 
-        item.classList.remove("active");
+        item.classList.remove(
+            "active"
+        );
 
     });
 
 
-    button.classList.add("active");
+    if (button) {
+
+        button.classList.add(
+            "active"
+        );
+
+    }
 
 
     items.forEach(function(item) {
@@ -708,4 +993,3 @@ function filterShop(category, button) {
 
 window.filterShop =
     filterShop;
-
